@@ -57,11 +57,16 @@ function App() {
       <div className='p-40 relative w-full bg-gray-950 min-h-screen'>
         <header className='flex justify-between absolute top-0 left-0 h-36 items-center w-full px-40'>
           <a href="https://buymeacoffee.com/nineteenqq" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" className="h-14" />
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"  className="h-14" target="_blank" />
           </a>
-          <a href="https://github.com/bydoodle/dota2fantasy" target="_blank" rel="noopener noreferrer">
-            <img src="github-mark-white.png" className="h-14" alt="" />
-          </a>
+          <div className='flex gap-4'>
+            <a href="https://steamcommunity.com/id/doodlehateu/">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/512px-Steam_icon_logo.svg.png?20220611141426" alt="" className="h-14" />
+            </a>
+            <a href="https://github.com/bydoodle/dota2fantasy" target="_blank" rel="noopener noreferrer">
+              <img src="github-mark-white.png" className="h-14" alt="" />
+            </a>
+          </div>
         </header>
         <section className='w-full flex flex-col gap-4'>
           <p className='text-white'>Choose your emblem stats and enter your multipliers, for example if you have 270% multiplier enter 2.7 instead. U will see 5 best players in descending order for each position</p>
@@ -146,9 +151,11 @@ function App() {
               </a>
               {idx < Object.entries(leagues).length - 1 && ", "}
             </span>
-          ))}</p>
+          ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a></p>
+          <p>* No data for 'lotuses grabbed' since it was unable to find this info</p>
           <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
-          <p>* No data for Larl(Team Spirit) since it is still unknown whether he will play. I will update the information as soon as it becomes known who will play in the mid lane.</p>
+          <p>09.01.2025 UPDATE: added Larl(Team Spirit), removed Whitemon(Tundra Esports) <br /> </p>
+          <small> <br /> I saw some videos about this website and I'm so glad it spreads up amongs community, if u have any questions, suggestions etc. u can write me on <a href="https://steamcommunity.com/id/doodlehateu/" target='_blank' className='underline text-blue-500' rel="noopener noreferrer">steam</a> </small>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>
           <div className='flex justify-between w-full'>
