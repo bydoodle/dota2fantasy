@@ -60,7 +60,7 @@ function App() {
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"  className="h-14" target="_blank" />
           </a>
           <div className='flex gap-4'>
-            <a href="https://steamcommunity.com/id/doodlehateu/">
+            <a href="https://steamcommunity.com/id/doodlehateu/" target="_blank" rel="noopener noreferrer">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/512px-Steam_icon_logo.svg.png?20220611141426" alt="" className="h-14" />
             </a>
             <a href="https://github.com/bydoodle/dota2fantasy" target="_blank" rel="noopener noreferrer">

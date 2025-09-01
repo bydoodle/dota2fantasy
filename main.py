@@ -9,244 +9,247 @@ with open("leagues.json", "r", encoding="utf-8") as f:
 
 PLAYERS_LIST = {
 # Team Liquid
-    'Insania': {
-        'pos': 2
-    },
-    'm1CKe': {
-        'pos': 0
-    },
-    'Nisha': {
+#     'Insania': {
+#         'pos': 2
+#     },
+#     'm1CKe': {
+#         'pos': 0
+#     },
+#     'Nisha': {
+#         'pos': 1
+#     },
+#     'Saberlight': {
+#         'pos': 0
+#     },
+#     'Boxi': {
+#         'pos': 2
+#     },
+# # PARIVISION
+#     'Satanic': {
+#         'pos': 0
+#     },
+#     'No[o]ne-': {
+#         'pos': 1
+#     },
+#     'DM': {
+#         'pos': 0
+#     },
+#     '9Class': {
+#         'pos': 2
+#     },
+#     'Dukalis': {
+#         'pos': 2
+#     },
+# # BetBoom Team
+#     'Pure': {
+#         'pos': 0
+#     },
+#     'gpk~': {
+#         'pos': 1
+#     },
+#     'MieRo': {
+#         'pos': 0
+#     },
+#     'Save-': {
+#         'pos': 2
+#     },
+#     'Kataomi`': {
+#         'pos': 2
+#     },
+# # Team Tidebound
+#     'shiro': {
+#         'pos': 0
+#     },
+#     'NothingToSay': {
+#         'pos': 1
+#     },
+#     'Bach': {
+#         'pos': 0
+#     },
+#     'planet': {
+#         'pos': 2
+#     },
+#     'y`': {
+#         'pos': 2
+#     },
+# # Team Spirit
+#     'Yatoro': {
+#         'pos': 0
+#     },
+#     'Miposhka': {
+#         'pos': 2
+#     },
+#     'Collapse': {
+#         'pos': 0
+#     },
+#     'rue': {
+#         'pos': 2
+#     },
+    'Larl': {
         'pos': 1
-    },
-    'Saberlight': {
-        'pos': 0
-    },
-    'Boxi': {
-        'pos': 2
-    },
-# PARIVISION
-    'Satanic': {
-        'pos': 0
-    },
-    'No[o]ne-': {
-        'pos': 1
-    },
-    'DM': {
-        'pos': 0
-    },
-    '9Class': {
-        'pos': 2
-    },
-    'Dukalis': {
-        'pos': 2
-    },
-# BetBoom Team
-    'Pure': {
-        'pos': 0
-    },
-    'gpk~': {
-        'pos': 1
-    },
-    'MieRo': {
-        'pos': 0
-    },
-    'Save-': {
-        'pos': 2
-    },
-    'Kataomi`': {
-        'pos': 2
-    },
-# Team Tidebound
-    'shiro': {
-        'pos': 0
-    },
-    'NothingToSay': {
-        'pos': 1
-    },
-    'Bach': {
-        'pos': 0
-    },
-    'planet': {
-        'pos': 2
-    },
-    'y`': {
-        'pos': 2
-    },
-# Team Spirit
-    'Yatoro': {
-        'pos': 0
-    },
-    'Miposhka': {
-        'pos': 2
-    },
-    'Collapse': {
-        'pos': 0
-    },
-    'rue': {
-        'pos': 2
     },
 # Team Falcons
-    'skiter': {
-        'pos': 0
-    },
-    'Malr1ne': {
-        'pos': 1
-    },
-    'AMMAR_THE_F': {
-        'pos': 0
-    },
-    'Cr1t-': {
-        'pos': 2
-    },
-    'Sneyking': {
-        'pos': 2
-    },
-# Tundra Esports
-    'Crystallis': {
-        'pos': 0
-    },
-    'bzm': {
-        'pos': 1
-    },
-    '33': {
-        'pos': 0
-    },
-    'Saksa': {
-        'pos': 2
-    },
-    'Whitemon': {
-        'pos': 2
-    },
-# Natus Vincere
-    'gotthejuice': {
-        'pos': 0
-    },
-    'Niku': {
-        'pos': 1
-    },
-    'pma': {
-        'pos': 0
-    },
-    'KG_Zayac': {
-        'pos': 2
-    },
-    'Riddys': {
-        'pos': 2
-    },
-# Nigma Galaxy
-    'OmaR': {
-        'pos': 2
-    },
-    'GH': {
-        'pos': 2
-    },
-    'No!ob™': {
-        'pos': 0
-    },
-    'SumaiL-': {
-        'pos': 1
-    },
-    'Ghost': {
-        'pos': 0
-    },
-# Aurora Gaming
-    'Nightfall': {
-        'pos': 0
-    },
-    'kiyotaka': {
-        'pos': 1
-    },
-    'TORONTOTOKYO': {
-        'pos': 0
-    },
-    'Mira': {
-        'pos': 2
-    },
-    'panto': {
-        'pos': 2
-    },
-# Xtreme Gaming
-    'Ame': {
-        'pos': 0
-    },
-    'Xm': {
-        'pos': 1
-    },
-    'Xxs': {
-        'pos': 0
-    },
-    'XinQ': {
-        'pos': 2
-    },
-    'xNova': {
-        'pos': 2
-    },
-# Team Nemesis
+#     'skiter': {
+#         'pos': 0
+#     },
+#     'Malr1ne': {
+#         'pos': 1
+#     },
+#     'AMMAR_THE_F': {
+#         'pos': 0
+#     },
+#     'Cr1t-': {
+#         'pos': 2
+#     },
+#     'Sneyking': {
+#         'pos': 2
+#     },
+# # Tundra Esports
+#     'Crystallis': {
+#         'pos': 0
+#     },
+#     'bzm': {
+#         'pos': 1
+#     },
+#     '33': {
+#         'pos': 0
+#     },
+#     'Saksa': {
+#         'pos': 2
+#     },
+#     # 'Whitemon': {
+#     #     'pos': 2
+#     # },
+# # Natus Vincere
+#     'gotthejuice': {
+#         'pos': 0
+#     },
+#     'Niku': {
+#         'pos': 1
+#     },
+#     'pma': {
+#         'pos': 0
+#     },
+#     'KG_Zayac': {
+#         'pos': 2
+#     },
+#     'Riddys': {
+#         'pos': 2
+#     },
+# # Nigma Galaxy
+#     'OmaR': {
+#         'pos': 2
+#     },
+#     'GH': {
+#         'pos': 2
+#     },
+#     'No!ob™': {
+#         'pos': 0
+#     },
+#     'SumaiL-': {
+#         'pos': 1
+#     },
+#     'Ghost': {
+#         'pos': 0
+#     },
+# # Aurora Gaming
+#     'Nightfall': {
+#         'pos': 0
+#     },
+#     'kiyotaka': {
+#         'pos': 1
+#     },
+#     'TORONTOTOKYO': {
+#         'pos': 0
+#     },
+#     'Mira': {
+#         'pos': 2
+#     },
+#     'panto': {
+#         'pos': 2
+#     },
+# # Xtreme Gaming
+#     'Ame': {
+#         'pos': 0
+#     },
+#     'Xm': {
+#         'pos': 1
+#     },
+#     'Xxs': {
+#         'pos': 0
+#     },
+#     'XinQ': {
+#         'pos': 2
+#     },
+#     'xNova': {
+#         'pos': 2
+#     },
+# # Team Nemesis
 
-# Wildcard
-    'Yamsun': {
-        'pos': 0
-    },
-    'RCY': {
-        'pos': 1
-    },
-    'Fayde': {
-        'pos': 0
-    },
-    'Bignum': {
-        'pos': 2
-    },
-    'Speeed': {
-        'pos': 2
-    },
-# Heroic
-    'Yuma': {
-        'pos': 0
-    },
-    '4nalog丶01': {
-        'pos': 1
-    },
-    'Wisper': {
-        'pos': 0
-    },
-    'Scofield': {
-        'pos': 2
-    },
-    'KingJungles': {
-        'pos': 2
-    },
-# BOOM Esports
-    'Jaunuel': {
-        'pos': 2
-    },
-    'TIMS': {
-        'pos': 2
-    },
-    'Jabz': {
-        'pos': 0
-    },
-    'Armel': {
-        'pos': 1
-    },
-    'JACKBOYS': {
-        'pos': 0
-    },
-# Yakult Brothers
-    'flyfly': {
-        'pos': 0
-    },
-    'Beyond': {
-        'pos': 0
-    },
-    'BoBoKa': {
-        'pos': 2
-    },
-    'Oli~': {
-        'pos': 2
-    },
-    'Emo': {
-        'pos': 1
-    }
+# # Wildcard
+#     'Yamsun': {
+#         'pos': 0
+#     },
+#     'RCY': {
+#         'pos': 1
+#     },
+#     'Fayde': {
+#         'pos': 0
+#     },
+#     'Bignum': {
+#         'pos': 2
+#     },
+#     'Speeed': {
+#         'pos': 2
+#     },
+# # Heroic
+#     'Yuma': {
+#         'pos': 0
+#     },
+#     '4nalog丶01': {
+#         'pos': 1
+#     },
+#     'Wisper': {
+#         'pos': 0
+#     },
+#     'Scofield': {
+#         'pos': 2
+#     },
+#     'KingJungles': {
+#         'pos': 2
+#     },
+# # BOOM Esports
+#     'Jaunuel': {
+#         'pos': 2
+#     },
+#     'TIMS': {
+#         'pos': 2
+#     },
+#     'Jabz': {
+#         'pos': 0
+#     },
+#     'Armel': {
+#         'pos': 1
+#     },
+#     'JACKBOYS': {
+#         'pos': 0
+#     },
+# # Yakult Brothers
+#     'flyfly': {
+#         'pos': 0
+#     },
+#     'Beyond': {
+#         'pos': 0
+#     },
+#     'BoBoKa': {
+#         'pos': 2
+#     },
+#     'Oli~': {
+#         'pos': 2
+#     },
+#     'Emo': {
+#         'pos': 1
+#     }
 }
 
 try:
@@ -254,8 +257,6 @@ try:
         player_stat = json.load(f)
 except FileNotFoundError:
     player_stat = {}
-
-LEAGUES_ID = [18433, 18375, 18107, 18359, 18358]
 
 leagues_ids = list(map(int, leagues_data.keys()))
 
