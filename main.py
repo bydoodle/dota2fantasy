@@ -9,9 +9,9 @@ with open("leagues.json", "r", encoding="utf-8") as f:
 
 PLAYERS_LIST = {
 # Team Liquid
-#     'Insania': {
-#         'pos': 2
-#     },
+    # 'Insania ': {
+    #     'pos': 2
+    # },
 #     'm1CKe': {
 #         'pos': 0
 #     },
@@ -85,9 +85,9 @@ PLAYERS_LIST = {
 #     'rue': {
 #         'pos': 2
 #     },
-    'Larl': {
-        'pos': 1
-    },
+    # 'Larl': {
+    #     'pos': 1
+    # },
 # Team Falcons
 #     'skiter': {
 #         'pos': 0
@@ -120,6 +120,9 @@ PLAYERS_LIST = {
 #     # 'Whitemon': {
 #     #     'pos': 2
 #     # },
+    'Tobi': {
+        'pos': '2'
+    }
 # # Natus Vincere
 #     'gotthejuice': {
 #         'pos': 0

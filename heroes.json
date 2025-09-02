@@ -1,506 +1,1388 @@
 {
     "1": {
         "name": "Anti-Mage",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "2": {
         "name": "Axe",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "3": {
         "name": "Bane",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "4": {
         "name": "Bloodseeker",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "5": {
         "name": "Crystal Maiden",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "6": {
         "name": "Drow Ranger",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "7": {
         "name": "Earthshaker",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "8": {
         "name": "Juggernaut",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "9": {
         "name": "Mirana",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "10": {
         "name": "Morphling",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "11": {
         "name": "Shadow Fiend",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "12": {
         "name": "Phantom Lancer",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "13": {
         "name": "Puck",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "14": {
         "name": "Pudge",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "15": {
         "name": "Razor",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "16": {
         "name": "Sand King",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "17": {
         "name": "Storm Spirit",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "18": {
         "name": "Sven",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "19": {
         "name": "Tiny",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "20": {
         "name": "Vengeful Spirit",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "21": {
         "name": "Windranger",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "22": {
         "name": "Zeus",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "23": {
         "name": "Kunkka",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": true
     },
     "25": {
         "name": "Lina",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "26": {
         "name": "Lion",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "27": {
         "name": "Shadow Shaman",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "28": {
         "name": "Slardar",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "29": {
         "name": "Tidehunter",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "30": {
         "name": "Witch Doctor",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "31": {
         "name": "Lich",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "32": {
         "name": "Riki",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": true,
+        "isaquatic": false
     },
     "33": {
         "name": "Enigma",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "34": {
         "name": "Tinker",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "35": {
         "name": "Sniper",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "36": {
         "name": "Necrophos",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "37": {
         "name": "Warlock",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "38": {
         "name": "Beastmaster",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": true,
+        "isaquatic": false
     },
     "39": {
         "name": "Queen of Pain",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "40": {
         "name": "Venomancer",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "41": {
         "name": "Faceless Void",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "42": {
         "name": "Wraith King",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "43": {
         "name": "Death Prophet",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "44": {
         "name": "Phantom Assassin",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "45": {
         "name": "Pugna",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "46": {
         "name": "Templar Assassin",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "47": {
         "name": "Viper",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "48": {
         "name": "Luna",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "49": {
         "name": "Dragon Knight",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "50": {
         "name": "Dazzle",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "51": {
         "name": "Clockwerk",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "52": {
         "name": "Leshrac",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "53": {
         "name": "Nature's Prophet",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "54": {
         "name": "Lifestealer",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "55": {
         "name": "Dark Seer",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "56": {
         "name": "Clinkz",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": true
     },
     "57": {
         "name": "Omniknight",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "58": {
         "name": "Enchantress",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": true,
+        "isaquatic": false
     },
     "59": {
         "name": "Huskar",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "60": {
         "name": "Night Stalker",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "61": {
         "name": "Broodmother",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "62": {
         "name": "Bounty Hunter",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "63": {
         "name": "Weaver",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "64": {
         "name": "Jakiro",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": true
     },
     "65": {
         "name": "Batrider",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "66": {
         "name": "Chen",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "67": {
         "name": "Spectre",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "68": {
         "name": "Ancient Apparition",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "69": {
         "name": "Doom",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": true
     },
     "70": {
         "name": "Ursa",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "71": {
         "name": "Spirit Breaker",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": true,
+        "isaquatic": false
     },
     "72": {
         "name": "Gyrocopter",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "73": {
         "name": "Alchemist",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "74": {
         "name": "Invoker",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "75": {
         "name": "Silencer",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "76": {
         "name": "Outworld Destroyer",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "77": {
         "name": "Lycan",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "78": {
         "name": "Brewmaster",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": true
     },
     "79": {
         "name": "Shadow Demon",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "80": {
         "name": "Lone Druid",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "81": {
         "name": "Chaos Knight",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "82": {
         "name": "Meepo",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "83": {
         "name": "Treant Protector",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "84": {
         "name": "Ogre Magi",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "85": {
         "name": "Undying",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "86": {
         "name": "Rubick",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "87": {
         "name": "Disruptor",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "88": {
         "name": "Nyx Assassin",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "89": {
         "name": "Naga Siren",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "90": {
         "name": "Keeper of the Light",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "91": {
         "name": "Io",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "92": {
         "name": "Visage",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "93": {
         "name": "Slark",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "94": {
         "name": "Medusa",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "95": {
         "name": "Troll Warlord",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "96": {
         "name": "Centaur Warrunner",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": true,
+        "isaquatic": false
     },
     "97": {
         "name": "Magnus",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": true,
+        "isaquatic": false
     },
     "98": {
         "name": "Timbersaw",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "99": {
         "name": "Bristleback",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "100": {
         "name": "Tusk",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": true
     },
     "101": {
         "name": "Skywrath Mage",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "102": {
         "name": "Abaddon",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "103": {
         "name": "Elder Titan",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "104": {
         "name": "Legion Commander",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "105": {
         "name": "Techies",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "106": {
         "name": "Ember Spirit",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "107": {
         "name": "Earth Spirit",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "108": {
         "name": "Underlord",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "109": {
         "name": "Terrorblade",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "110": {
         "name": "Phoenix",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": true
     },
     "111": {
         "name": "Oracle",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "112": {
         "name": "Winter Wyvern",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": true
     },
     "113": {
         "name": "Arc Warden",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "114": {
         "name": "Monkey King",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "119": {
         "name": "Dark Willow",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": true,
+        "isbearded": false,
+        "isaquatic": false
     },
     "120": {
         "name": "Pangolier",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "121": {
         "name": "Grimstroke",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "123": {
         "name": "Hoodwink",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "126": {
         "name": "Void Spirit",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "128": {
         "name": "Snapfire",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "129": {
         "name": "Mars",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": true,
+        "isaquatic": false
     },
     "131": {
         "name": "Ringmaster",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "135": {
         "name": "Dawnbreaker",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": true
     },
     "136": {
         "name": "Marci",
-        "attr": "all"
+        "attr": "all",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "137": {
         "name": "Primal Beast",
-        "attr": "str"
+        "attr": "str",
+        "isgreen": false,
+        "isblue": false,
+        "isred": true,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "138": {
         "name": "Muerta",
-        "attr": "int"
+        "attr": "int",
+        "isgreen": true,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     },
     "145": {
         "name": "Kez",
-        "attr": "agi"
+        "attr": "agi",
+        "isgreen": false,
+        "isblue": false,
+        "isred": false,
+        "isundead": false,
+        "ishorns": false,
+        "isbearded": false,
+        "isaquatic": false
     }
 }
