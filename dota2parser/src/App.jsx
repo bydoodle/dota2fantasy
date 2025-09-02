@@ -43,7 +43,7 @@ function App() {
     'smokes_used': 283,
     'roshan_kills': 850,
     'teamfight_participation': 1895,
-    'stuns': 128,
+    'stuns': 15,
     'tormentor_kills': 850,
     'courier_kills': 850,
     'firstblood': 1700
@@ -154,7 +154,8 @@ function App() {
           ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a></p>
           <p>* No data for 'lotuses grabbed' since it was unable to find this info</p>
           <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
-          <p>09.01.2025 UPDATE: added Larl(Team Spirit), removed Whitemon(Tundra Esports) <br /> </p>
+          <p>09.01.2025 UPDATE: added Larl(Team Spirit), removed Whitemon(Tundra Esports)</p>
+          <p>09.02.2025 UPDATE: changed points per second of stun(old: 128, new: 15)</p>
           <small> <br /> I saw some videos about this website and I'm so glad it spreads up amongs community, if u have any questions, suggestions etc. u can write me on <a href="https://steamcommunity.com/id/doodlehateu/" target='_blank' className='underline text-blue-500' rel="noopener noreferrer">steam</a> </small>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>
@@ -307,7 +308,7 @@ function App() {
                 </p>
                 <p>
                   <b>Avg. stuns: </b> 
-                  {(info.stats.green.stuns.reduce((sum, el) => sum + el, 0) / info.stats.green.stuns.length * 128 *
+                  {(info.stats.green.stuns.reduce((sum, el) => sum + el, 0) / info.stats.green.stuns.length * 15 *
                       ((selectedMultiplier[1] && selectedOption[1] == 'stuns' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
                       ((selectedMultiplier[5] && selectedOption[5] == 'stuns' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
                       ((selectedMultiplier[7] && selectedOption[7] == 'stuns' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
