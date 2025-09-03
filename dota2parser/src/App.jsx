@@ -49,8 +49,87 @@ function App() {
     'firstblood': 1700
   }
 
+  const titlesInfo = {
+    'str': {
+      name: 'Brawny',
+      description: 'when playing strength hero',
+      percent: 13,
+    },
+    'agi': {
+      name: 'Dashing',
+      description: 'when playing agility hero',
+      percent: 15,
+    },
+    'int': {
+      name: 'Canny',
+      description: 'when playing intelligence hero',
+      percent: 11
+    },
+    'all': {
+      name: 'Balanced',
+      description: 'when playing universal hero',
+      percent: 15
+    },
+    'green': {
+      name: 'Emerald',
+      description: 'when playing green hero',
+      percent: 18
+    },
+    'blue': {
+      name: 'Cerulean',
+      description: 'when playing blue hero',
+      percent: 19
+    },
+    'red': {
+      name: 'Crimson',
+      description: 'when playing red hero',
+      percent: 13
+    },
+    'undead': {
+      name: 'Otherwordly',
+      description: 'when playing undead/demon/spirit hero',
+      percent: 13
+    },
+    'horns': {
+      name: 'Bestial',
+      description: 'when playing horns/wings hero',
+      percent: 15
+    },
+    'bearded': {
+      name: 'Hirsute',
+      description: 'when playing bearded/fuzzy hero',
+      percent: 10
+    },
+    'aquatic': {
+      name: 'Elemental',
+      description: 'when playing aquatic/fiery/icy hero',
+      percent: 15
+    },
+    'first_pick': {
+      name: 'Sacrificial',
+      description: 'when players hero is chosen first',
+      percent: 15
+    },
+    'last_pick': {
+      name: 'Coveted',
+      description: 'when players hero chosen last',
+      percent: 15
+    },
+    'games_with_arcana': {
+      name: 'Glamorous',
+      description: 'when players hero has arcana equipped',
+      percent: 25
+    },
+    'games_with_hero_master': {
+      name: 'Virtuoso',
+      description: 'when players hero has Master/Grandmaster tier',
+      percent: 13
+    }
+  }
+
   const [selectedOption, setSelectedOption] = useState([null, null, null, null, null, null, null, null, null]);
   const [selectedMultiplier, setSelectedMultiplier] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  const [selectedTitle, setSelectedTitle] = useState([null, null, null])
 
   return (
     <>
@@ -70,76 +149,115 @@ function App() {
         </header>
         <section className='w-full flex flex-col gap-4'>
           <p className='text-white'>Choose your emblem stats and enter your multipliers, for example if you have 270% multiplier enter 2.7 instead. U will see 5 best players in descending order for each position</p>
-          <div className='flex justify-between gap-4'>
-          {Object.keys(roles).map((role) => (
-            <div
-            key={role}
-            className='flex flex-col gap-2 p-4 rounded-lg bg-purple-300 bg-opacity-25'>
-              <h4 className='text-center text-white'>{{0: 'Core', 1: 'Mid', 2: 'Support'}[role]}</h4>
-              {roles[role].map((color, idx) => (
-                <div
-                key={idx}
-                className={`grid grid-cols-2 gap-4 bg-${color}-900 bg-opacity-50 px-4 py-6`}>
-                  <Select
-                  value={selectedOption[idx + (role * 3)] || ''}
-                  onChange={(e) => setSelectedOption(prev => {
-                    const updated = [...prev];
-                    updated[idx + (role * 3)] = e.target.value;
-                    return updated;
-                  })}
-                  >
-                    <option value="">none</option>
-                    {Object.keys(data.Malr1ne.stats[color]).map((stat, idx) => (
-                      <option key={`${idx}-${stat}`} value={stat}>
-                        {stat.replace('_', ' ')}
-                      </option>
-                    ))}
-                  </Select>
-                  <input
-                  type="number"
-                  value={selectedMultiplier[idx + (role * 3)]} 
-                  onChange={(e) =>
-                    setSelectedMultiplier(prev => {
-                      const updated = [...prev];
-                      updated[idx + (role * 3)] = Number(e.target.value); // пишем новое значение в массив
-                      return updated;
-                    })
-                  } />
+          <h2 className='text-white text-2xl'>How does it counts?</h2>
+          <p className='text-white'>
+            <small>(sum of all players stats</small> <b>x</b> <small>their multipliers)</small> <b>+</b> <small>(games played with particular title</small> <b>x</b> <small>title percent</small> <b>/</b> <small>all players matches)</small><b>%</b>
+            <br />
+            For example: <br />
+            <b>Beyond</b> played 10 matches and picked strength heroes in <b>6</b> of them. After choosing the Brawny title you will get <b>+13%</b> if player plays strength hero. <br />
+            That means, average title +percent per game would be <u>6 x 13 / 10 = 7,8%</u> <br />
+            Let's say we have next stats: <br />
+            <b>kills</b> with <b>2.7</b> multiplier = beyond's average kills * 2.7 = <u>411.4 * 2.7 = 1110.78</u><br />
+            <b>teamfight participation</b> with <b>2</b> multiplier = beyond's average TF participation * 2 = <u>1149.16 * 2 = 2298.31</u><br />
+            <b>creep score</b> with <b>1.5</b> multiplier = beyond's average CS * 1.5 = <u>713.4 * 1.5 = 1070.10</u><br /> <br />
+            The sum of all stats = <u>1110.78 + 2298.31 + 1070.10 = 4479.19</u><br />
+            Final result = ((sum of all stats / 100) x (average title +percent/game)) + sum of all stats = <u>((4479.19 / 100) x 7.8) + 4479.19 = 4828.57</u>
+          </p>
+          <div className='grid grid-cols-3 gap-4'>
+            {Object.keys(roles).map((role, index) => (
+              <div
+              key={role}
+              className='flex flex-col gap-2 p-4 rounded-lg bg-purple-300 bg-opacity-25'>
+                <div className='flex justify-between gap-2'>
+                  <div className='w-[30%] flex flex-col justify-center'>
+                    <h2 className='text-center text-white'>{{0: 'Core', 1: 'Mid', 2: 'Support'}[role]}</h2>
+                    <Select
+                      value={selectedTitle[index]}
+                      onChange={(e) => setSelectedTitle(prev => {
+                        const updated = [...prev];
+                        updated[index] = e.target.value;
+                        return updated;
+                      })}
+                      >
+                        <option value="">none</option>
+                        {Object.keys(data.Emo.titles).map((title, idx) => (
+                          <option key={`${idx}-${title}`} value={title}>
+                            {titlesInfo[title]['name']} {' - +'}{titlesInfo[title]['percent']}{'%'} {titlesInfo[title]['description']}
+                          </option>
+                        ))}
+                      </Select>
+                  </div>
+                  <div>
+                  {roles[role].map((color, idx) => (
+                    <div
+                    key={idx}
+                    className={`grid grid-cols-2 gap-4 bg-${color}-900 bg-opacity-50 px-4 py-6`}>
+                      <Select
+                      value={selectedOption[idx + (role * 3)] || ''}
+                      onChange={(e) => setSelectedOption(prev => {
+                        const updated = [...prev];
+                        updated[idx + (role * 3)] = e.target.value;
+                        return updated;
+                      })}
+                      >
+                        <option value="">none</option>
+                        {Object.keys(data.Emo.stats[color]).map((stat, idx) => (
+                          <option key={`${idx}-${stat}`} value={stat}>
+                            {stat.replace('_', ' ')}
+                          </option>
+                        ))}
+                      </Select>
+                      <input
+                      type="number"
+                      value={selectedMultiplier[idx + (role * 3)]} 
+                      onChange={(e) =>
+                        setSelectedMultiplier(prev => {
+                          const updated = [...prev];
+                          updated[idx + (role * 3)] = Number(e.target.value); // пишем новое значение в массив
+                          return updated;
+                        })
+                      } />
+                    </div>
+                  ))}
+                  </div>
                 </div>
-              ))}
-              <h6 className="text-white">Best players:</h6>
-              <ul className='text-white'>
-                {Object.entries(data)
-                  .filter(([name, info]) => info.general.pos === +role)
-                  .map(([name, info]) => {
-                    const total = roles[role].map((color, idx) => {
-                      const stat = selectedOption[idx + role * 3];
-                      if (!stat) return 0;
-                      const arr = info.stats[color]?.[stat] ?? [];
-                      if (!arr.length) return 0;
+                <div>
+                  <h6 className="text-white">Best players:</h6>
+                  <ul className='text-white'>
+                    {Object.entries(data)
+                      .filter(([name, info]) => info.general.pos === +role)
+                      .map(([name, info]) => {
+                        const total = roles[role].map((color, idx) => {
+                          const stat = selectedOption[idx + role * 3];
+                          if (!stat) return 0;
+                          const arr = info.stats[color]?.[stat] ?? [];
+                          if (!arr.length) return 0;
 
-                      const multiplier = selectedMultiplier[idx + role * 3];
-                      const statMultiplier = multipliers[stat] ?? 1
+                          const multiplier = selectedMultiplier[idx + role * 3];
+                          const statMultiplier = multipliers[stat] ?? 1
+                          const titlePercent = (titlesInfo[selectedTitle[info.general.pos]]?.['percent'] * info.titles[selectedTitle[info.general.pos]]) / (info.stats.green.roshan_kills.length) || 0
 
-                      if (stat === 'deaths') {
-                        return (1800 - (arr.reduce((sum, el) => sum + el, 0) / arr.length) * statMultiplier) * multiplier;
-                      } else {
-                        return (arr.reduce((sum, el) => sum + el, 0) / arr.length) * multiplier * statMultiplier;
-                      }
-                    }).reduce((a, b) => a + b, 0);
+                          if (stat === 'deaths') {
+                            return ((1800 - (arr.reduce((sum, el) => sum + el, 0) / arr.length) * statMultiplier) * multiplier) + ((((1800 - (arr.reduce((sum, el) => sum + el, 0) / arr.length) * statMultiplier) * multiplier) / 100) * titlePercent);
+                          } else {
+                            return (((arr.reduce((sum, el) => sum + el, 0) / arr.length) * multiplier * statMultiplier) / 100) * titlePercent + ((arr.reduce((sum, el) => sum + el, 0) / arr.length) * multiplier * statMultiplier);
+                          }
+                        })
+                        .reduce((a, b) => a + b, 0);
 
-                    return { name, total };
-                  })
-                  .sort((a, b) => b.total - a.total)
-                  .slice(0, 5)
-                  .map(({ name, total }) => (
-                    <li key={name}>
-                      {name}: {total.toFixed(2)}
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
+                        return { name, total };
+                      })
+                      .sort((a, b) => b.total - a.total)
+                      .slice(0, 5)
+                      .map(({ name, total }) => (
+                        <li key={name}>
+                          {name}: {total.toFixed(2)}
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+              </div>
             ))}
           </div>
         </section>
@@ -151,13 +269,11 @@ function App() {
               </a>
               {idx < Object.entries(leagues).length - 1 && ", "}
             </span>
-          ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a></p>
-          <p>* No data for 'lotuses grabbed' since it was unable to find this info</p>
+          ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a> and <a href="https://api.stratz.com/">stratz.com</a> </p>
+          <p>* No data for stat 'lotuses grabbed' since it was unable to find this info</p>
+          <p>* No data for title 'clutch(+11% when playing last possible match in the series)'</p>
           <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
-          <p>09.01.2025 UPDATE: added Larl(Team Spirit), removed Whitemon(Tundra Esports)</p>
-          <p>09.02.2025 UPDATE: changed points per second of stun(old: 128, new: 15)</p>
-          <p>09.02.2025 UPDATE: added Insania(Team Liquid)</p>
-          <small> <br /> I saw some videos about this website and I'm so glad it spreads up amongs community, if u have any questions, suggestions etc. u can write me on <a href="https://steamcommunity.com/id/doodlehateu/" target='_blank' className='underline text-blue-500' rel="noopener noreferrer">steam</a> </small>
+          <p>* No data for Tobi(Tundra Esports)</p>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>
           <div className='flex justify-between w-full'>
@@ -186,8 +302,8 @@ function App() {
           value={sortBy || ''}
           onChange={(e) => setSortBy(e.target.value)}>
             <option value="">None</option>
-            {Object.keys(data.Malr1ne.stats).map(color => 
-              Object.keys(data.Malr1ne.stats[color]).map(stat => (
+            {Object.keys(data.Emo.stats).map(color => 
+              Object.keys(data.Emo.stats[color]).map(stat => (
                 <option key={`${color}-${stat}`} value={stat}>
                   {stat.replace('_', ' ')}
                 </option>
@@ -336,27 +452,34 @@ function App() {
                       ((selectedMultiplier[7] && selectedOption[7] == 'firstblood' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
                 </p>
               </div>
-              {/* <h5><b>Tournaments: </b>
-                {info.leagues.map(league => league + ', ')}
-              </h5> */}
               <h5><b>Total games:</b> {info.stats.green.roshan_kills.length}</h5>
               <div>
-                {['agi','str','int','all'].map(attr => (
-                  <h5 key={attr}>
-                    <b>Total {(() => {
-                      switch (attr) {
-                        case 'agi': return 'agility';
-                        case 'str': return 'strength';
-                        case 'int': return 'intelligence';
-                        case 'all': return 'universal';
+                {Object.entries(info.titles).map(([key, value]) => (
+                  <h5 key={key}>
+                    {(() => {
+                      switch (key) {
+                        case 'str': return 'strength heroes played: ';
+                        case 'agi': return 'agility heroes played: ';
+                        case 'int': return 'intelligence heroes played: ';
+                        case 'all': return 'universal heroes played: ';
+                        case 'green': return 'green heroes played: ';
+                        case 'blue': return 'blue heroes played: ';
+                        case 'red': return 'red heroes played: ';
+                        case 'undead': return 'undead/demon/spirit heroes played: ';
+                        case 'horns': return 'horns/wings heroes played: ';
+                        case 'bearded': return 'bearded/fuzzy heroes played: ';
+                        case 'aquatic': return 'aquatic/fiery/icy heroes played: ';
+                        case 'first_pick': return 'firstpicked: ';
+                        case 'last_pick': return 'lastpicked: ';
+                        case 'games_with_arcana': return 'arcana equipped: ';
+                        case 'games_with_hero_master': return '25+ dota plus hero level: ';
                       }
-                    })()
-                    } heroes played:</b>{" "}
-                    {Object.keys(info.heroes || {})
-                      .filter(heroId => heroes[heroId]?.attr === attr)
-                      .reduce((sum, heroId) => sum + info.heroes[heroId], 0)}
+                    })()}
+                    {value}
                   </h5>
                 ))}
+                <br />
+                {}
               </div>
               <p>
                 <b>Data fetched from:</b> <br/> {' '}
