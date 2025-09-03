@@ -269,7 +269,7 @@ function App() {
               </a>
               {idx < Object.entries(leagues).length - 1 && ", "}
             </span>
-          ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a> and <a href="https://api.stratz.com/">stratz.com</a> </p>
+          ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a> and <a href="https://stratz.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">stratz.com</a> </p>
           <p>* No data for stat 'lotuses grabbed' since it was unable to find this info</p>
           <p>* No data for title 'clutch(+11% when playing last possible match in the series)'</p>
           <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
