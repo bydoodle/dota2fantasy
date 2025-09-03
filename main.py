@@ -272,13 +272,11 @@ leagues_ids = list(map(int, leagues_data.keys()))
 
 for league_id in leagues_ids:
     matches = requests.get(f"https://api.opendota.com/api/leagues/{league_id}/matches").json()
-    # matches = ['8392385254', '8392421360', '8393651518', '8393686593', '8395069663', '8395110761', '8396647993', '8396708130', '8393938493', '8393882299']
     time.sleep(1.2)
 
     for match in matches:
         match_id = match['match_id']
         match_r = requests.get(f"https://api.opendota.com/api/matches/{match_id}").json()
-        # match_r = requests.get(f"https://api.opendota.com/api/matches/{match}").json()
         stratzAPI = scraper.post(
             stratzUrl,
             json = {"query": """{
@@ -299,17 +297,15 @@ for league_id in leagues_ids:
         max_retries = 3
         for attempt in range(max_retries):
             if "players" in match_r:
-                break  # данные есть → выходим из цикла
+                break
             else:
                 print(f"Не удалось получить данные {match} (попытка {attempt + 1})")
-                if attempt < max_retries - 1:  # если это не последняя попытка
+                if attempt < max_retries - 1:
                     time.sleep(3)
-                    # пробуем заново запрос
                     match_r = requests.get(f"https://api.opendota.com/api/matches/{match}").json()
         else:
-            # если вышли из цикла без break → все попытки провалились
             print(f"Не удалось получить данные о матче {match} после {max_retries} попыток")
-            continue  # переход к следующему матчу
+            continue
 
         for player in match_r['players']:
             if player['name'] in PLAYERS_LIST:
