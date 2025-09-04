@@ -284,7 +284,7 @@ function App() {
           <p>* No data for title 'clutch(+11% when playing last possible match in the series)'</p>
           <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
           <p>* No data for Tobi(Tundra Esports)</p> <br />
-          <p>* DATA FOR WATCHERS TAKEN MAY BE INCORRECT!</p>
+          <p>* DATA FOR WATCHERS TAKEN IS NOT 100% ACCURATE!</p>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>
           <div className='flex justify-between w-full'>
