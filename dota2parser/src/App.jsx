@@ -29,6 +29,12 @@ function App() {
     2: ['blue', 'green', 'blue']
   }
 
+  const rolesExtended = {
+    0: ['red', 'green', 'red', 'green', 'red'],
+    1: ['red', 'blue', 'green', 'red', 'green'],
+    2: ['blue', 'green', 'blue', 'green', 'blue']
+  }
+
   const multipliers = {
     'kills': 121,
     'deaths': 180,
@@ -39,7 +45,7 @@ function App() {
     'obs_placed': 113,
     'camps_stacked': 170,
     'runes_grabbed': 121,
-    'watchers_taken': 121,
+    'watchers_taken': 90,
     'smokes_used': 283,
     'roshan_kills': 850,
     'teamfight_participation': 1895,
@@ -131,6 +137,9 @@ function App() {
   const [selectedMultiplier, setSelectedMultiplier] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
   const [selectedTitle, setSelectedTitle] = useState([null, null, null])
 
+  const [selectedOptionExtended, setSelectedOptionExtended] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]);
+  const [selectedMultiplierExtended, setSelectedMultiplierExtended] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+
   return (
     <>
       <div className='p-40 relative w-full bg-gray-950 min-h-screen'>
@@ -164,7 +173,7 @@ function App() {
             Final result = ((sum of all stats / 100) x (average title +percent/game)) + sum of all stats = <u>((4479.19 / 100) x 7.8) + 4479.19 = 4828.57</u>
           </p>
           <div className='grid grid-cols-3 gap-4'>
-            {Object.keys(roles).map((role, index) => (
+            {Object.keys(rolesExtended).map((role, index) => (
               <div
               key={role}
               className='flex flex-col gap-2 p-4 rounded-lg bg-purple-300 bg-opacity-25'>
@@ -188,15 +197,15 @@ function App() {
                       </Select>
                   </div>
                   <div>
-                  {roles[role].map((color, idx) => (
+                  {rolesExtended[role].map((color, idx) => (
                     <div
                     key={idx}
                     className={`grid grid-cols-2 gap-4 bg-${color}-900 bg-opacity-50 px-4 py-6`}>
                       <Select
-                      value={selectedOption[idx + (role * 3)] || ''}
-                      onChange={(e) => setSelectedOption(prev => {
+                      value={selectedOptionExtended[idx + (role * 5)] || ''}
+                      onChange={(e) => setSelectedOptionExtended(prev => {
                         const updated = [...prev];
-                        updated[idx + (role * 3)] = e.target.value;
+                        updated[idx + (role * 5)] = e.target.value;
                         return updated;
                       })}
                       >
@@ -209,11 +218,11 @@ function App() {
                       </Select>
                       <input
                       type="number"
-                      value={selectedMultiplier[idx + (role * 3)]} 
+                      value={selectedMultiplierExtended[idx + (role * 5)]} 
                       onChange={(e) =>
-                        setSelectedMultiplier(prev => {
+                        setSelectedMultiplierExtended(prev => {
                           const updated = [...prev];
-                          updated[idx + (role * 3)] = Number(e.target.value); // пишем новое значение в массив
+                          updated[idx + (role * 5)] = Number(e.target.value); // пишем новое значение в массив
                           return updated;
                         })
                       } />
@@ -227,13 +236,13 @@ function App() {
                     {Object.entries(data)
                       .filter(([name, info]) => info.general.pos === +role)
                       .map(([name, info]) => {
-                        const total = roles[role].map((color, idx) => {
-                          const stat = selectedOption[idx + role * 3];
+                        const total = rolesExtended[role].map((color, idx) => {
+                          const stat = selectedOptionExtended[idx + role * 5];
                           if (!stat) return 0;
                           const arr = info.stats[color]?.[stat] ?? [];
                           if (!arr.length) return 0;
 
-                          const multiplier = selectedMultiplier[idx + role * 3];
+                          const multiplier = selectedMultiplierExtended[idx + role * 5];
                           const statMultiplier = multipliers[stat] ?? 1
                           const titlePercent = (titlesInfo[selectedTitle[info.general.pos]]?.['percent'] * info.titles[selectedTitle[info.general.pos]]) / (info.stats.green.roshan_kills.length) || 0
 
@@ -273,7 +282,8 @@ function App() {
           <p>* No data for stat 'lotuses grabbed' since it was unable to find this info</p>
           <p>* No data for title 'clutch(+11% when playing last possible match in the series)'</p>
           <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
-          <p>* No data for Tobi(Tundra Esports)</p>
+          <p>* No data for Tobi(Tundra Esports)</p> <br />
+          <p>* DATA FOR WATCHERS TAKEN MAY BE INCORRECT!</p>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>
           <div className='flex justify-between w-full'>
@@ -391,7 +401,7 @@ function App() {
                   </p>
                   <p>
                     <b>Avg. watchers taken: </b> 
-                    {(info.stats.blue.watchers_taken.reduce((sum, el) => sum + el, 0) / info.stats.blue.watchers_taken.length * 121 *
+                    {(info.stats.blue.watchers_taken.reduce((sum, el) => sum + el, 0) / info.stats.blue.watchers_taken.length * 90 *
                       ((selectedMultiplier[4] && selectedOption[4] == 'watchers_taken' && info.general.pos == 1) ? selectedMultiplier[4] : 1) *
                       ((selectedMultiplier[6] && selectedOption[6] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplier[6] : 1) * 
                       ((selectedMultiplier[8] && selectedOption[8] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplier[8] : 1)).toFixed(2)};
