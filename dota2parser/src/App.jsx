@@ -211,12 +211,13 @@ function App() {
                       >
                         <option value="">none</option>
                         {Object.keys(data.Emo.stats[color]).map((stat, idx) => (
-                          <option key={`${idx}-${stat}`} value={stat}>
+                          <option key={`${idx}-${stat}`} value={stat} className={stat == 'watchers_taken' ? 'text-red-500' : ''}>
                             {stat.replace('_', ' ')}
+                            {stat == 'watchers_taken' ? '(data is not 100% accurate)' : ''}
                           </option>
                         ))}
                       </Select>
-                      <input
+                       <input
                       type="number"
                       value={selectedMultiplierExtended[idx + (role * 5)]} 
                       onChange={(e) =>
