@@ -335,44 +335,56 @@ function App() {
                   <p>
                     <b>Avg. kills: </b> 
                     {(info.stats.red.kills.reduce((sum, el) => sum + el, 0) / info.stats.red.kills.length * 121 *
-                     ((selectedMultiplier[0] && selectedOption[0] == 'kills' && info.general.pos == 0) ? selectedMultiplier[0] : 1) *
-                     ((selectedMultiplier[2] && selectedOption[2] == 'kills' && info.general.pos == 0) ? selectedMultiplier[2] : 1) * 
-                     ((selectedMultiplier[3] && selectedOption[3] == 'kills' && info.general.pos == 1) ? selectedMultiplier[3] : 1)).toFixed(2)}.
+                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'kills' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
+                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'kills' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
+                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'kills' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
+                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'kills' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
+                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'kills' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
                   </p>
                   <p>
                     <b>Avg. deaths: </b> 
                     {((1800 - ((info.stats.red.deaths.reduce((sum, el) => sum + el, 0) / info.stats.red.deaths.length) * 180)) *
-                      ((selectedMultiplier[0] && selectedOption[0] == 'deaths' && info.general.pos == 0) ? selectedMultiplier[0] : 1) *
-                      ((selectedMultiplier[2] && selectedOption[2] == 'deaths' && info.general.pos == 0) ? selectedMultiplier[2] : 1) * 
-                      ((selectedMultiplier[3] && selectedOption[3] == 'deaths' && info.general.pos == 1) ? selectedMultiplier[3] : 1)).toFixed(2)};
+                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'deaths' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
+                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'deaths' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
+                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'deaths' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
+                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'deaths' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
+                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'deaths' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
                   </p>
                   <p>
                     <b>Avg. creep score: </b> 
                     {(info.stats.red.creep_score.reduce((sum, el) => sum + el, 0) / info.stats.red.creep_score.length * 3 *
-                      ((selectedMultiplier[0] && selectedOption[0] == 'creep_score' && info.general.pos == 0) ? selectedMultiplier[0] : 1) *
-                      ((selectedMultiplier[2] && selectedOption[2] == 'creep_score' && info.general.pos == 0) ? selectedMultiplier[2] : 1) * 
-                      ((selectedMultiplier[3] && selectedOption[3] == 'creep_score' && info.general.pos == 1) ? selectedMultiplier[3] : 1)).toFixed(2)};
+                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'creep_score' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
+                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'creep_score' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
+                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'creep_score' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
+                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'creep_score' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
+                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'creep_score' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
                   </p>
                   <p>
                     <b>Avg. GPM: </b> 
                     {(info.stats.red.gpm.reduce((sum, el) => sum + el, 0) / info.stats.red.gpm.length * 2 *
-                      ((selectedMultiplier[0] && selectedOption[0] == 'gpm' && info.general.pos == 0) ? selectedMultiplier[0] : 1) *
-                      ((selectedMultiplier[2] && selectedOption[2] == 'gpm' && info.general.pos == 0) ? selectedMultiplier[2] : 1) * 
-                      ((selectedMultiplier[3] && selectedOption[3] == 'gpm' && info.general.pos == 1) ? selectedMultiplier[3] : 1)).toFixed(2)};
+                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'gpm' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
+                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'gpm' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
+                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'gpm' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
+                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'gpm' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
+                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'gpm' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
                   </p>
                   <p>
                     <b>Avg. madstone's collected: </b> 
                     {(info.stats.red.madstone_collected.reduce((sum, el) => sum + el, 0) / info.stats.red.madstone_collected.length * 19 *
-                      ((selectedMultiplier[0] && selectedOption[0] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplier[0] : 1) *
-                      ((selectedMultiplier[2] && selectedOption[2] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplier[2] : 1) * 
-                      ((selectedMultiplier[3] && selectedOption[3] == 'madstone_collected' && info.general.pos == 1) ? selectedMultiplier[3] : 1)).toFixed(2)};
+                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
+                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
+                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
+                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'madstone_collected' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
+                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'madstone_collected' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
                   </p>
                   <p>
                     <b>Avg. tower kills: </b> 
                     {(info.stats.red.tower_kills.reduce((sum, el) => sum + el, 0) / info.stats.red.tower_kills.length * 340 *
-                      ((selectedMultiplier[0] && selectedOption[0] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplier[0] : 1) *
-                      ((selectedMultiplier[2] && selectedOption[2] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplier[2] : 1) * 
-                      ((selectedMultiplier[3] && selectedOption[3] == 'tower_kills' && info.general.pos == 1) ? selectedMultiplier[3] : 1)).toFixed(2)};
+                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
+                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
+                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
+                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'tower_kills' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
+                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'tower_kills' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
                   </p>
                 </div>
               ) : ''}
@@ -381,30 +393,34 @@ function App() {
                   <p>
                     <b>Avg. wards placed: </b> 
                     {(info.stats.blue.obs_placed.reduce((sum, el) => sum + el, 0) / info.stats.blue.obs_placed.length * 113 *
-                      ((selectedMultiplier[4] && selectedOption[4] == 'obs_placed' && info.general.pos == 1) ? selectedMultiplier[4] : 1) *
-                      ((selectedMultiplier[6] && selectedOption[6] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplier[6] : 1) * 
-                      ((selectedMultiplier[8] && selectedOption[8] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplier[8] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'obs_placed' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
+                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
+                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
+                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
                   </p>
                   <p>
                     <b>Avg. camps stacked: </b>
                      {(info.stats.blue.camps_stacked.reduce((sum, el) => sum + el, 0) / info.stats.blue.camps_stacked.length * 170 *
-                      ((selectedMultiplier[4] && selectedOption[4] == 'camps_stacked' && info.general.pos == 1) ? selectedMultiplier[4] : 1) *
-                      ((selectedMultiplier[6] && selectedOption[6] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplier[6] : 1) * 
-                      ((selectedMultiplier[8] && selectedOption[8] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplier[8] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'camps_stacked' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
+                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
+                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
+                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
                   </p>
                   <p>
                     <b>Avg. runes grabbed: </b> 
                     {(info.stats.blue.runes_grabbed.reduce((sum, el) => sum + el, 0) / info.stats.blue.runes_grabbed.length * 121 *
-                      ((selectedMultiplier[4] && selectedOption[4] == 'runes_grabbed' && info.general.pos == 1) ? selectedMultiplier[4] : 1) *
-                      ((selectedMultiplier[6] && selectedOption[6] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplier[6] : 1) * 
-                      ((selectedMultiplier[8] && selectedOption[8] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplier[8] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'runes_grabbed' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
+                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
+                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
+                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
                   </p>
                   <p>
                     <b>Avg. watchers taken: </b> 
                     {(info.stats.blue.watchers_taken.reduce((sum, el) => sum + el, 0) / info.stats.blue.watchers_taken.length * 90 *
-                      ((selectedMultiplier[4] && selectedOption[4] == 'watchers_taken' && info.general.pos == 1) ? selectedMultiplier[4] : 1) *
-                      ((selectedMultiplier[6] && selectedOption[6] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplier[6] : 1) * 
-                      ((selectedMultiplier[8] && selectedOption[8] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplier[8] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'watchers_taken' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
+                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
+                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
+                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
                   </p>
                   <p>
                     <b>Avg. lotuses grabbed: </b> ?;
@@ -412,9 +428,10 @@ function App() {
                   <p>
                     <b>Avg. smokes used: </b> 
                     {(info.stats.blue.smokes_used.reduce((sum, el) => sum + el, 0) / info.stats.blue.smokes_used.length * 283 *
-                      ((selectedMultiplier[4] && selectedOption[4] == 'smokes_used' && info.general.pos == 1) ? selectedMultiplier[4] : 1) *
-                      ((selectedMultiplier[6] && selectedOption[6] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplier[6] : 1) * 
-                      ((selectedMultiplier[8] && selectedOption[8] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplier[8] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'smokes_used' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
+                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
+                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
+                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
                   </p>
                 </div>
               ) : ''}
@@ -422,44 +439,62 @@ function App() {
                 <p>
                   <b>Avg. roshan kills: </b>
                   {(info.stats.green.roshan_kills.reduce((sum, el) => sum + el, 0) / info.stats.green.roshan_kills.length * 850 *
-                      ((selectedMultiplier[1] && selectedOption[1] == 'roshan_kills' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
-                      ((selectedMultiplier[5] && selectedOption[5] == 'roshan_kills' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
-                      ((selectedMultiplier[7] && selectedOption[7] == 'roshan_kills' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'roshan_kills' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
+                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'roshan_kills' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
+                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'roshan_kills' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
+                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'roshan_kills' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
+                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'roshan_kills' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
+                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'roshan_kills' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
                 </p>
                 <p>
                   <b>Avg. teamfight participation: </b> 
                   {(info.stats.green.teamfight_participation.reduce((sum, el) => sum + el, 0) / info.stats.green.teamfight_participation.length * 1895 *
-                      ((selectedMultiplier[1] && selectedOption[1] == 'teamfight_participation' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
-                      ((selectedMultiplier[5] && selectedOption[5] == 'teamfight_participation' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
-                      ((selectedMultiplier[7] && selectedOption[7] == 'teamfight_participation' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'teamfight_participation' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
+                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'teamfight_participation' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
+                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'teamfight_participation' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
+                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'teamfight_participation' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
+                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'teamfight_participation' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
+                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'teamfight_participation' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
                 </p>
                 <p>
                   <b>Avg. stuns: </b> 
                   {(info.stats.green.stuns.reduce((sum, el) => sum + el, 0) / info.stats.green.stuns.length * 15 *
-                      ((selectedMultiplier[1] && selectedOption[1] == 'stuns' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
-                      ((selectedMultiplier[5] && selectedOption[5] == 'stuns' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
-                      ((selectedMultiplier[7] && selectedOption[7] == 'stuns' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'stuns' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
+                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'stuns' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
+                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'stuns' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
+                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'stuns' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
+                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'stuns' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
+                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'stuns' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
                 </p>
                 <p>
                   <b>Avg. tormentor kills: </b>
                    {(info.stats.green.tormentor_kills.reduce((sum, el) => sum + el, 0) / info.stats.green.tormentor_kills.length * 850 *
-                      ((selectedMultiplier[1] && selectedOption[1] == 'tormentor_kills' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
-                      ((selectedMultiplier[5] && selectedOption[5] == 'tormentor_kills' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
-                      ((selectedMultiplier[7] && selectedOption[7] == 'tormentor_kills' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'tormentor_kills' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
+                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'tormentor_kills' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
+                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'tormentor_kills' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
+                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'tormentor_kills' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
+                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'tormentor_kills' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
+                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'tormentor_kills' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
                 </p>
                 <p>
                   <b>Avg. courier kills: </b> 
                   {(info.stats.green.courier_kills.reduce((sum, el) => sum + el, 0) / info.stats.green.courier_kills.length * 850 *
-                      ((selectedMultiplier[1] && selectedOption[1] == 'courier_kills' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
-                      ((selectedMultiplier[5] && selectedOption[5] == 'courier_kills' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
-                      ((selectedMultiplier[7] && selectedOption[7] == 'courier_kills' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'courier_kills' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
+                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'courier_kills' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
+                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'courier_kills' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
+                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'courier_kills' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
+                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'courier_kills' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
+                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'courier_kills' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
                 </p>
                 <p>
                   <b>Avg. first blood: </b> 
                   {(info.stats.green.firstblood.reduce((sum, el) => sum + el, 0) / info.stats.green.firstblood.length * 1700 *
-                      ((selectedMultiplier[1] && selectedOption[1] == 'firstblood' && info.general.pos == 0) ? selectedMultiplier[1] : 1) *
-                      ((selectedMultiplier[5] && selectedOption[5] == 'firstblood' && info.general.pos == 1) ? selectedMultiplier[5] : 1) * 
-                      ((selectedMultiplier[7] && selectedOption[7] == 'firstblood' && info.general.pos == 2) ? selectedMultiplier[7] : 1)).toFixed(2)};
+                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'firstblood' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
+                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'firstblood' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
+                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'firstblood' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
+                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'firstblood' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
+                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'firstblood' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
+                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'firstblood' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
                 </p>
               </div>
               <h5><b>Total games:</b> {info.stats.green.roshan_kills.length}</h5>
