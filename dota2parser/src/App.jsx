@@ -6,21 +6,126 @@ import { Select } from '@headlessui/react'
 import './App.css'
 
 function App() {
+  const [selectedTournaments, setSelectedTournaments] = useState(Object.keys(leagues));
   const [selectedRole, setSelectedRole] = useState(0);
+  const [isHIW, setIsHIW] = useState(false);
+
+  const getAvgStat = (info, color, statKey) => {
+  // Берём только выбранные турниры
+  const selectedLeaguesData = Object.entries(info)
+    .filter(([leagueId]) => selectedTournaments.includes(leagueId));
+
+  let allValues = [];
+  selectedLeaguesData.forEach(([_, leagueData]) => {
+    const stats = leagueData?.stats?.[color]?.[statKey];
+    if (stats) allValues.push(...stats);
+  });
+
+  if (allValues.length === 0) return 0;
+
+  const avg = allValues.reduce((sum, el) => sum + el, 0) / allValues.length;
+
+  // Подбираем индексы для мультипликаторов
+  const multiplierIndexes = {
+    red: color === "red" ? [0, 2, 4, 5, 8] : [],
+    blue: color === "blue" ? [6, 10, 12, 14] : [],
+    green: color === "green" ? [1, 3, 7, 9, 11, 13] : [],
+  };
+
+  const multiplier = multiplierIndexes[color].reduce((acc, idx) => {
+    if (selectedOptionExtended[idx] === statKey && info.general.pos === (idx < 5 ? 0 : idx < 10 ? 1 : 2)) {
+      return acc * selectedMultiplierExtended[idx];
+    }
+    return acc;
+  }, 1);
+
+  // Специальная формула для deaths
+  if (statKey === "deaths") {
+    return ((1800 - avg * 180) * multiplier).toFixed(2);
+  }
+
+  // Остальные статы
+  const factor = {
+    kills: 121,
+    creep_score: 3,
+    gpm: 2,
+    madstone_collected: 19,
+    tower_kills: 340,
+    roshan_kills: 850,
+    teamfight_participation: 1895,
+    stuns: 15,
+    tormentor_kills: 850,
+    courier_kills: 850,
+    firstblood: 1700,
+    obs_placed: 113,
+    camps_stacked: 170,
+    runes_grabbed: 121,
+    watchers_taken: 90,
+    smokes_used: 283,
+  };
+
+  return (avg * (factor[statKey] || 1) * multiplier).toFixed(2);
+};
+
+const RedStats = ({ info }) => (
+  <div className="bg-red-500 bg-opacity-20 py-2 px-4 rounded-lg">
+    {["kills","deaths","creep_score","gpm","madstone_collected","tower_kills"].map(stat => (
+      <p key={stat}>
+        <b>Avg. {stat.replace("_"," ")}: </b> {getAvgStat(info,"red",stat)}
+      </p>
+    ))}
+  </div>
+);
+
+const BlueStats = ({ info }) => (
+  <div className="bg-blue-500 bg-opacity-20 py-2 px-4 rounded-lg">
+    {["obs_placed","camps_stacked","runes_grabbed","watchers_taken","smokes_used"].map(stat => (
+      <p key={stat}>
+        <b>Avg. {stat.replace("_"," ")}: </b> {getAvgStat(info,"blue",stat)}
+      </p>
+    ))}
+  </div>
+);
+
+const GreenStats = ({ info }) => (
+  <div className="bg-green-500 bg-opacity-20 py-2 px-4 rounded-lg">
+    {["roshan_kills","teamfight_participation","stuns","tormentor_kills","courier_kills","firstblood"].map(stat => (
+      <p key={stat}>
+        <b>Avg. {stat.replace("_"," ")}: </b> {getAvgStat(info,"green",stat)}
+      </p>
+    ))}
+  </div>
+);
+
+const getAvgForSort = (info, statKey) => {
+  // Выбираем только турниры пользователя
+  const selectedLeaguesData = Object.entries(info)
+    .filter(([leagueId]) => selectedTournaments.includes(leagueId));
+
+  let allValues = [];
+
+  selectedLeaguesData.forEach(([_, leagueData]) => {
+    // Проверяем все цвета
+    ['red', 'blue', 'green'].forEach(color => {
+      const arr = leagueData?.stats?.[color]?.[statKey];
+      if (arr) allValues.push(...arr);
+    });
+  });
+
+  if (allValues.length === 0) return 0;
+
+  return allValues.reduce((sum, v) => sum + v, 0) / allValues.length;
+};
 
   const [sortBy, setSortBy] = useState(null);
   const filteredAndSorted = Object.entries(data)
-    .filter(([_, info]) => selectedRole === null || info.general.pos === selectedRole)
-    .sort(([_, aInfo], [__, bInfo]) => {
-      if (!sortBy) return 0;
+  .filter(([_, info]) => selectedRole === null || info.general.pos === selectedRole)
+  .sort(([_, aInfo], [__, bInfo]) => {
+    if (!sortBy) return 0;
 
-      const getAvg = (stats) => {
-        const arr = (stats.red?.[sortBy] || stats.blue?.[sortBy] || stats.green?.[sortBy] || []);
-        return arr.length ? arr.reduce((s, v) => s + v, 0) / arr.length : 0;
-      };
+    const multiplier = sortBy === 'deaths' ? -1 : 1;
 
-      const multiplier = sortBy === 'deaths' ? -1 : 1;
-      return multiplier * (getAvg(bInfo.stats) - getAvg(aInfo.stats));
+    return multiplier * (getAvgForSort(bInfo, sortBy) - getAvgForSort(aInfo, sortBy));
   });
   
   const roles = {
@@ -133,16 +238,91 @@ function App() {
     }
   }
 
+  const subtitlesInfo = {
+    '0_kills': {
+      name: 'Pacifist',
+      description: 'if player ends game with 0 kills',
+      percent: 8,
+    },
+    'lowest_networth': {
+      name: 'Ant',
+      description: 'if player has the lowest networth',
+      percent: 8,
+    },
+    'bbs_before_30min': {
+      name: 'Bull',
+      description: 'in games where player buybacks before 30 min',
+      percent: 9
+    },
+    'most_deaths': {
+      name: 'North Piligrim',
+      description: 'if player has the most games deaths',
+      percent: 15
+    },
+    '4+_active_items': {
+      name: 'Octopus',
+      description: 'in games where player has 4 or more active items',
+      percent: 7
+    },
+    'most_assists': {
+      name: 'Accompice',
+      description: 'if player has the most assists',
+      percent: 7
+    },
+    '9_slots': {
+      name: 'Mule',
+      description: 'when player has 9 slots in his inventory and backpack',
+      percent: 21
+    },
+    "lost_games": {
+      name: 'Underdog',
+      description: "when player's team lost",
+      percent: 6
+    },
+    "most_voice_lines": {
+      name: 'Loquacious',
+      description: 'in games where the player uses the most voicelines',
+      percent: 7
+    },
+    "total_deaths_from_torm": {
+      name: 'Tormented',
+      description: 'if any player dies to a tormentor',
+      percent: 9
+    },
+    "firstblood_before_10min": {
+      name: 'Patient',
+      description: 'if first blood after 10 min',
+      percent: 13
+    },
+    "firstblood_before_horn": {
+      name: 'Flayed Twins Acolyte',
+      description: 'if first blood before the horn',
+      percent: 7
+    },
+    "games<25min": {
+      name: 'Decisive',
+      description: 'in games that last less than 25min',
+      percent: 25
+    }
+  }
+
+  const backgrounds = {
+    red: "bg-red-500",
+    blue: "bg-blue-500",
+    green: "bg-green-500",
+  };
+
   const [selectedOption, setSelectedOption] = useState([null, null, null, null, null, null, null, null, null]);
   const [selectedMultiplier, setSelectedMultiplier] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
-  const [selectedTitle, setSelectedTitle] = useState([null, null, null])
+  const [selectedTitle, setSelectedTitle] = useState([null, null, null]);
+  const [selectedSubtitle, setSelectedSubtitle] = useState([null, null, null]);
 
   const [selectedOptionExtended, setSelectedOptionExtended] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]);
   const [selectedMultiplierExtended, setSelectedMultiplierExtended] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
 
   return (
     <>
-      <div className='p-40 relative w-full bg-gray-950 min-h-screen'>
+      <div className='p-40 relative w-full bg-gray-950 min-h-screen flex flex-col gap-12'>
         <header className='flex justify-between absolute top-0 left-0 h-36 items-center w-full px-40'>
           <a href="https://buymeacoffee.com/nineteenqq" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"  className="h-14" target="_blank" />
@@ -156,51 +336,187 @@ function App() {
             </a>
           </div>
         </header>
-        <section className='w-full flex flex-col gap-4'>
-          <p className='text-white'>Choose your emblem stats and enter your multipliers, for example if you have 270% multiplier enter 2.7 instead. U will see 5 best players in descending order for each position</p>
-          <h2 className='text-white text-2xl'>How does it counts?</h2>
-          <p className='text-white'>
-            <small>(sum of all players stats</small> <b>x</b> <small>their multipliers)</small> <b>+</b> <small>(games played with particular title</small> <b>x</b> <small>title percent</small> <b>/</b> <small>all players matches)</small><b>%</b>
-            <br />
-            For example: <br />
-            <b>Beyond</b> played 10 matches and picked strength heroes in <b>6</b> of them. After choosing the Brawny title you will get <b>+13%</b> if player plays strength hero. <br />
-            That means, average title +percent per game would be <u>6 x 13 / 10 = 7,8%</u> <br />
-            Let's say we have next stats: <br />
-            <b>kills</b> with <b>2.7</b> multiplier = beyond's average kills * 2.7 = <u>411.4 * 2.7 = 1110.78</u><br />
-            <b>teamfight participation</b> with <b>2</b> multiplier = beyond's average TF participation * 2 = <u>1149.16 * 2 = 2298.31</u><br />
-            <b>creep score</b> with <b>1.5</b> multiplier = beyond's average CS * 1.5 = <u>713.4 * 1.5 = 1070.10</u><br /> <br />
-            The sum of all stats = <u>1110.78 + 2298.31 + 1070.10 = 4479.19</u><br />
-            Final result = ((sum of all stats / 100) x (average title +percent/game)) + sum of all stats = <u>((4479.19 / 100) x 7.8) + 4479.19 = 4828.57</u>
-          </p>
+        {isHIW && (
+          <div className='backdrop-blur-sm fixed w-screen h-screen left-0 top-0 bg-gray-950 bg-opacity-50 z-10'>
+            <div className='absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] backdrop-blur-sm rounded-lg border border-zinc-900 bg-zinc-800 bg-opacity-80 z-10 p-8'>
+              <button className='absolute right-8 top-8' onClick={() => setIsHIW(false)}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="size-12">
+                  <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <p className="text-white leading-relaxed w-max">
+                <span className="block mb-2 font-semibold">Calculation formula:</span>
+                <span className="block">
+                  (sum of all players stats <b>x</b> their multipliers) <b>+</b> <br />
+                  (games played with particular subtitle <b>x</b> subtitle percent <b>/</b> all players matches) <b>+</b> <br />
+                  (games played with particular title <b>x</b> title percent <b>/</b> all players matches)
+                </span>
+
+                <span className="block mt-4 font-semibold">Example:</span>
+                <span className="block mt-2">
+                  Let's say we choose 2 tournaments to fetch data from - TI 2025 and PGL Wallachia.
+                  <b>33</b> played <b>34</b> matches and picked strength heroes in <b>12</b> of them. <br />
+                  After choosing the <b>Brawny</b> title, you will get <b>+13%</b> if the player plays a strength hero.
+                  <br />
+                  Average title +percent per game would be: <u>12 × 13 / 34 = 4.58%</u>
+                </span>
+
+                <span className="block mt-2">
+                  <b>Subtitles calculation:</b> The formula is similar, except for conditions specific to each subtitle:
+                  <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Tormented: +9% if any player dies to a tormentor</li>
+                    <li>Patient: +13% if first blood occurs after minute 10</li>
+                    <li>Decisive: +25% if the game lasts less than 25 minutes</li>
+                    <li>Flayed Twins Acolyte: +7% if first blood occurs before the horn</li>
+                  </ul>
+                  <br />
+                  Data for these subtitles is taken from your chosen tournaments.
+                  <br />
+                  For example, if you select PGL Wallachia and TI 2025, and pick the Flayed Twins Acolyte subtitle:
+                  <br />
+                  In PGL Wallachia, first blood before the horn occurred in 11 out of 92 matches, and in TI 2025, 9 out of 84 matches.
+                  <br />
+                  We multiply the subtitle by the given percent and divide by total matches:  
+                  (11 × 7 / 92) = 0.83 and (9 × 7 / 84) = 0.75
+                  <br />
+                  Then we average the results across the tournaments:  
+                  (0.83 + 0.75) / 2 = 0.79%
+                </span>
+
+                <span className="block mt-4 font-semibold">Player stats:</span>
+                <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
+                  <li>
+                    <b>Kills</b> with multiplier <b>2.7</b>: 
+                    33's average kills × 2.7 = <u>597.88 × 2.7 = 1614.28</u>
+                  </li>
+                  <li>
+                    <b>Teamfight participation</b> with multiplier <b>2</b>: 
+                    33's average TF participation × 2 = <u>1189.04 × 2 = 2378.09</u>
+                  </li>
+                  <li>
+                    <b>Creep score</b> with multiplier <b>1.5</b>: 
+                    33's average CS × 1.5 = <u> 932.56 × 1.5 = 1398.84</u>
+                  </li>
+                </ul>
+
+                <span className="block mt-4 font-semibold">Sum of stats:</span>
+                <span className="block mt-1"><u>1614.28 + 2378.09 + 1398.84 = 5391.21</u></span>
+
+                <span className="block mt-4 font-semibold">Final result:</span>
+                <span className="block mt-1">
+                  ((sum of all stats / 100) × average title +percent per game) + ((sum of all stats / 100) × average subtitle +percent per game) + sum of all stats = <br />
+                  <u>((5391.21 / 100) × 4.58) + ((5391.21 / 100) × 0.79) + 5391.21 = 5682.66</u>
+                </span>
+              </p>
+            </div>
+          </div>
+        )}
+        <section className='w-full flex flex-col gap-4 items-center'>
+          <h2 className='text-white font-bold text-5xl'>Select tournaments</h2>
+          <h3 className='text-white'>Choose tournaments to fetch data from</h3>
+          <div className='text-white flex w-full justify-between gap-4'>
+            {Object.entries(leagues).map(([league, data]) => (
+              <div key={data.name} className='bg-gradient-to-b from-transparent from-20% rounded-md to-purple-900 p-4 flex flex-col w-full'>
+                <label htmlFor={`league-${league}`} className='text-lg' >
+                  <input type="checkbox" id={`league-${league}`} className='mr-2'
+                  checked={selectedTournaments.includes(league)}
+                  onChange={() =>
+                    setSelectedTournaments(prev =>
+                      prev.includes(league)
+                        ? prev.filter(id => id !== league)
+                        : [...prev, league]
+                    )
+                  } />
+                {data.short_name}</label>
+                <div className='flex w-full mt-4'>
+                  <span className='whitespace-nowrap'>Total matches parsed:</span>
+                  <div className='w-full h-[1px] bg-white self-end mb-1 bg-opacity-30'></div>
+                  <b className='ml-auto'>{data.total_matches_parsed}</b>
+                </div>
+                <div className='flex w-full'>
+                  <span className='whitespace-nowrap'>Deaths from tormentor:</span>
+                  <div className='w-full h-[1px] bg-white self-end mb-1 bg-opacity-30'></div>
+                  <b className='ml-auto'>{data.total_deaths_from_torm}</b>
+                </div>
+                <div className='flex w-full'>
+                  <span className='whitespace-nowrap'>Firstblood after min 10:</span>
+                  <div className='w-full h-[1px] bg-white self-end mb-1 bg-opacity-30'></div>
+                  <b className='ml-auto'>{data.firstblood_before_10min}</b>
+                </div>
+                <div className='flex w-full'>
+                  <span className='whitespace-nowrap'>Firstblood before horn:</span>
+                  <div className='w-full h-[1px] bg-white self-end mb-1 bg-opacity-30'></div>
+                  <b className='ml-auto'>{data.firstblood_before_horn}</b>
+                </div>
+                <div className='flex w-full'>
+                  <span className='whitespace-nowrap'>Games &lt;25min:</span>
+                  <div className='w-full h-[1px] bg-white self-end mb-1 bg-opacity-30'></div>
+                  <b className='ml-auto'>{data['games<25min']}</b>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className='relative w-full flex flex-col gap-4 items-center'>
+          <h2 className='text-white font-bold text-5xl'>Select your stats</h2>
+          <h3 className='text-white text-center'>Choose your titles, subtitles, stats and their multipliers <br />* Enter fraction instead of percents, for example if you have 270% multiplier enter 2.7 instead.</h3>
+          <button className='text-yellow-500 text-2xl absolute right-0 top-12 cursor-pointer' onClick={() => setIsHIW(true)}>How does it counts?</button>
           <div className='grid grid-cols-3 gap-4'>
             {Object.keys(rolesExtended).map((role, index) => (
               <div
               key={role}
-              className='flex flex-col gap-2 p-4 rounded-lg bg-purple-300 bg-opacity-25'>
-                <div className='flex justify-between gap-2'>
-                  <div className='w-[30%] flex flex-col justify-center'>
-                    <h2 className='text-center text-white'>{{0: 'Core', 1: 'Mid', 2: 'Support'}[role]}</h2>
+              className='flex flex-col gap-2 p-4 bg-gradient-to-b from-purple-900 rounded-md to-transparent'>
+                <div className='flex justify-between gap-4'>
+                  <div className='w-[40%] flex flex-col mt-6 gap-6'>
+                    <h2 className='text-center text-white text-5xl'>{{0: 'Core', 1: 'Mid', 2: 'Support'}[role]}</h2>
                     <Select
-                      value={selectedTitle[index]}
+                      value={selectedTitle[index] || ''}
                       onChange={(e) => setSelectedTitle(prev => {
                         const updated = [...prev];
                         updated[index] = e.target.value;
                         return updated;
                       })}
+                      className='p-1 rounded-sm focus:outline-none'
                       >
-                        <option value="">none</option>
-                        {Object.keys(data.Emo.titles).map((title, idx) => (
-                          <option key={`${idx}-${title}`} value={title}>
+                        <option value="">Select title</option>
+                        {Object.keys(data.Xm[18358].titles).map((title, idx) => (
+                          <option key={`${idx}-${title}`} value={title || ''}>
                             {titlesInfo[title]['name']} {' - +'}{titlesInfo[title]['percent']}{'%'} {titlesInfo[title]['description']}
                           </option>
                         ))}
+                        <option disabled className='text-red-600'>
+                          Clutch - +11% when playing last possible match in the series(NO DATA)
+                        </option>
+                      </Select>
+                      <Select
+                      value={selectedSubtitle[index] || ''}
+                      onChange={(e) => setSelectedSubtitle(prev => {
+                        const updated = [...prev];
+                        updated[index] = e.target.value;
+                        return updated;
+                      })}
+                      className='p-1 rounded-sm'
+                      >
+                        <option value="">Select subtitle</option>
+                        {Object.entries(subtitlesInfo).map(([name, info], idx) => (
+                          <option key={`${idx}-${name}`} value={name || ''}>
+                            {info.name} {' - +'}{info.percent}{'%'} {info.description}
+                          </option>
+                        ))}
+                        <option disabled className='text-red-600'>
+                          Thief - +9% in games where any player steals divine rapier(NO DATA)
+                        </option>
+                        <option disabled className='text-red-600'>
+                          Raven - +6% if any player gets a rampage(NO DATA)
+                        </option>
                       </Select>
                   </div>
-                  <div>
+                  <div className='flex flex-col gap-2'>
                   {rolesExtended[role].map((color, idx) => (
                     <div
                     key={idx}
-                    className={`grid grid-cols-2 gap-4 bg-${color}-900 bg-opacity-50 px-4 py-6`}>
+                    className={`flex justify-between gap-2 ${backgrounds[color]} bg-opacity-30 rounded-md px-4 py-6`}
+                    >
                       <Select
                       value={selectedOptionExtended[idx + (role * 5)] || ''}
                       onChange={(e) => setSelectedOptionExtended(prev => {
@@ -208,22 +524,29 @@ function App() {
                         updated[idx + (role * 5)] = e.target.value;
                         return updated;
                       })}
+                      className='w-[100%] p-1 rounded-sm'
                       >
-                        <option value="">none</option>
-                        {Object.keys(data.Emo.stats[color]).map((stat, idx) => (
-                          <option key={`${idx}-${stat}`} value={stat} className={stat == 'watchers_taken' ? 'text-red-500' : ''}>
+                        <option value="">None</option>
+                        {Object.keys(data.Xm[18358].stats[color]).map((stat, idx) => (
+                          <option key={`${idx}-${stat}`} value={stat || ''} className={stat == 'watchers_taken' ? 'text-red-600' : ''}>
                             {stat.replace('_', ' ')}
                             {stat == 'watchers_taken' ? '(data is not 100% accurate)' : ''}
                           </option>
                         ))}
+                        {color == 'blue' ? (
+                          <option disabled className='text-red-600'>
+                            lotuses grabbed(NO DATA)
+                          </option>
+                        ) : ''}
                       </Select>
                        <input
                       type="number"
-                      value={selectedMultiplierExtended[idx + (role * 5)]} 
+                      className='w-[30%] text-black rounded-sm p-1 focus:outline-none focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [appearance:textfield]'
+                      value={selectedMultiplierExtended[idx + (role * 5)] || ''} 
                       onChange={(e) =>
                         setSelectedMultiplierExtended(prev => {
                           const updated = [...prev];
-                          updated[idx + (role * 5)] = Number(e.target.value); // пишем новое значение в массив
+                          updated[idx + (role * 5)] = Number(e.target.value);
                           return updated;
                         })
                       } />
@@ -231,26 +554,65 @@ function App() {
                   ))}
                   </div>
                 </div>
-                <div>
-                  <h6 className="text-white">Best players:</h6>
-                  <ul className='text-white'>
+                <div className='flex flex-col items-center'>
+                  <h6 className="text-white text-3xl my-4">Best players:</h6>
+                  <ul className='text-white grid grid-flow-col grid-rows-8 grid-cols-2 w-full gap-x-8'>
                     {Object.entries(data)
                       .filter(([name, info]) => info.general.pos === +role)
                       .map(([name, info]) => {
                         const total = rolesExtended[role].map((color, idx) => {
                           const stat = selectedOptionExtended[idx + role * 5];
                           if (!stat) return 0;
-                          const arr = info.stats[color]?.[stat] ?? [];
-                          if (!arr.length) return 0;
-
                           const multiplier = selectedMultiplierExtended[idx + role * 5];
-                          const statMultiplier = multipliers[stat] ?? 1
-                          const titlePercent = (titlesInfo[selectedTitle[info.general.pos]]?.['percent'] * info.titles[selectedTitle[info.general.pos]]) / (info.stats.green.roshan_kills.length) || 0
+                          const statMultiplier = multipliers[stat] ?? 1;
+                          const selectedLeagues = Object.entries(info)
+                            .filter(([leagueId]) => selectedTournaments.includes(leagueId));
 
-                          if (stat === 'deaths') {
-                            return ((1800 - (arr.reduce((sum, el) => sum + el, 0) / arr.length) * statMultiplier) * multiplier) + ((((1800 - (arr.reduce((sum, el) => sum + el, 0) / arr.length) * statMultiplier) * multiplier) / 100) * titlePercent);
+                          let allValues = [];
+                          let titlePercent = 0;
+                          let subtitlePercent = 0;
+
+                          selectedLeagues.forEach(([leagueId, leagueData]) => {
+                            const leagueStats = leagueData?.stats[color];
+                            if (!leagueStats) return;
+
+                            const key = stat || Object.keys(leagueStats)[0];
+                            const arr = leagueStats[key] ?? [];
+                            allValues = [...allValues, ...arr]
+
+                            titlePercent +=
+                            ((titlesInfo[selectedTitle[info.general.pos]]?.percent *
+                              leagueData.titles[selectedTitle[info.general.pos]]) /
+                              leagueData.stats.green.roshan_kills.length) || 0;
+
+                            if (selectedSubtitle[info.general.pos] in leagues[leagueId]) {
+                              subtitlePercent +=
+                              ((subtitlesInfo[selectedSubtitle[info.general.pos]]?.percent *
+                                leagues[leagueId][selectedSubtitle[info.general.pos]]) /
+                                leagues[leagueId].total_matches_parsed) || 0;
+                            } else {
+                              subtitlePercent +=
+                              ((subtitlesInfo[selectedSubtitle[info.general.pos]]?.percent *
+                                leagueData.subtitles[selectedSubtitle[info.general.pos]]) /
+                                leagueData.stats.green.roshan_kills.length) || 0;
+                            }
+                          });
+
+                          titlePercent = titlePercent / selectedLeagues.length
+                          subtitlePercent = subtitlePercent / selectedLeagues.length
+
+                          if (allValues.length === 0) return 0;
+
+                          const avg = allValues.reduce((sum, el) => sum + el, 0) / allValues.length;
+
+                          if (stat === "deaths") {
+                            return (
+                              (1800 - avg * statMultiplier) * multiplier +
+                              (((1800 - avg * statMultiplier) * multiplier) / 100) * (titlePercent + subtitlePercent)
+                            );
                           } else {
-                            return (((arr.reduce((sum, el) => sum + el, 0) / arr.length) * multiplier * statMultiplier) / 100) * titlePercent + ((arr.reduce((sum, el) => sum + el, 0) / arr.length) * multiplier * statMultiplier);
+                            return ((avg * multiplier * statMultiplier) / 100) * (titlePercent + subtitlePercent) +
+                              avg * multiplier * statMultiplier;
                           }
                         })
                         .reduce((a, b) => a + b, 0);
@@ -258,10 +620,10 @@ function App() {
                         return { name, total };
                       })
                       .sort((a, b) => b.total - a.total)
-                      .slice(0, 5)
+                      .slice(0, 16)
                       .map(({ name, total }) => (
-                        <li key={name}>
-                          {name}: {total.toFixed(2)}
+                        <li key={name} className='whitespace-nowrap flex justify-between'>
+                          <span>{name}</span><div className='h-[1px] w-full bg-white bg-opacity-20 self-end mb-1'></div><span>{total.toFixed(2)}</span>
                         </li>
                       ))
                     }
@@ -272,50 +634,48 @@ function App() {
           </div>
         </section>
         <div className='w-full text-gray-300 py-16'>
-          <p>* All data was taken from next tournaments: {Object.entries(leagues).map(([id, league], idx) => (
-            <span key={id}>
-              <a href={league.link} target='_blank' rel="noopener noreferrer" className='underline text-blue-500'>
-                {league.name}
-              </a>
-              {idx < Object.entries(leagues).length - 1 && ", "}
-            </span>
-          ))} using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a> and <a href="https://stratz.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">stratz.com</a> </p>
+          <p>* All data was taken using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a> and <a href="https://stratz.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">stratz.com</a> </p>
           <p>* No data for stat 'lotuses grabbed' since it was unable to find this info</p>
           <p>* No data for title 'clutch(+11% when playing last possible match in the series)'</p>
-          <p>* No data for Team Nemesis since they didn't participate in those tournaments.</p>
-          <p>* No data for Tobi(Tundra Esports)</p> <br />
-          <p>* DATA FOR WATCHERS TAKEN IS NOT 100% ACCURATE!</p>
+          <p>* No data for next subtitles:
+            <br />
+            Thief(+9% in games where any player steals divine rapier),
+            <br />
+            Raven(+6% if any player gets a rampage),
+            <br />
+            </p>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>
           <div className='flex justify-between w-full'>
             <h2
             className='w-full text-center font-bold text-5xl cursor-pointer'
             onClick={() => setSelectedRole(0)}>
-              carry/offlane
+              Core
             </h2>
             <h2 
             className='w-full text-center font-bold text-5xl cursor-pointer'
             onClick={() => setSelectedRole(1)}>
-              mid
+              Mid
             </h2>
             <h2 
             className='w-full text-center font-bold text-5xl cursor-pointer'
             onClick={() => setSelectedRole(2)}>
-              support
+              Support
             </h2>
           </div>
           <div className='absolute left-0 bottom-0 h-1 w-[33.33%] bg-white transition duration-300'
           style={{ transform: `translateX(${selectedRole * 100}%)` }}></div>
         </section>
         <section className='flex flex-col w-full items-center justify-center py-8'>
-          <h4 className='text-white'>Sort by:</h4>
+          <h4 className='text-white text-lg'>Sort by:</h4>
           <Select name="sort" aria-label="Sort"
+          className='p-1 rounded-sm'
           value={sortBy || ''}
           onChange={(e) => setSortBy(e.target.value)}>
             <option value="">None</option>
-            {Object.keys(data.Emo.stats).map(color => 
-              Object.keys(data.Emo.stats[color]).map(stat => (
-                <option key={`${color}-${stat}`} value={stat}>
+            {Object.keys(data.Xm[18358].stats).map(color => 
+              Object.keys(data.Xm[18358].stats[color]).map(stat => (
+                <option key={`${color}-${stat}`} value={stat || ''}>
                   {stat.replace('_', ' ')}
                 </option>
               ))
@@ -323,230 +683,95 @@ function App() {
           </Select>
         </section>
         <section className='grid grid-cols-4 gap-6'>
-          {filteredAndSorted.map(([playerName, info], idx) =>
-            <div
-            key={playerName}
-            className='flex flex-col gap-4 w-full bg-gray-900 p-4 rounded-lg border border-gray-800 text-white'>
+          {filteredAndSorted.map(([playerName, info]) => (
+            <div key={playerName} className='flex flex-col gap-4 w-full bg-gradient-to-b from-purple-950 to-transparent p-4 rounded-lg text-white'>
               <div className='relative'>
                 <h3 className='font-semibold text-4xl'>{playerName}</h3>
                 <img src={info.general.team_logo} alt="" className='h-10 absolute right-0 top-0 object-contain' />
               </div>
-              {info.general.pos === 0 || info.general.pos === 1 ? (
-                <div className='bg-red-900 bg-opacity-25 py-2 px-4 rounded-lg'>
-                  <p>
-                    <b>Avg. kills: </b> 
-                    {(info.stats.red.kills.reduce((sum, el) => sum + el, 0) / info.stats.red.kills.length * 121 *
-                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'kills' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
-                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'kills' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
-                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'kills' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
-                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'kills' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
-                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'kills' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
-                  </p>
-                  <p>
-                    <b>Avg. deaths: </b> 
-                    {((1800 - ((info.stats.red.deaths.reduce((sum, el) => sum + el, 0) / info.stats.red.deaths.length) * 180)) *
-                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'deaths' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
-                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'deaths' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
-                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'deaths' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
-                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'deaths' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
-                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'deaths' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
-                  </p>
-                  <p>
-                    <b>Avg. creep score: </b> 
-                    {(info.stats.red.creep_score.reduce((sum, el) => sum + el, 0) / info.stats.red.creep_score.length * 3 *
-                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'creep_score' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
-                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'creep_score' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
-                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'creep_score' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
-                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'creep_score' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
-                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'creep_score' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
-                  </p>
-                  <p>
-                    <b>Avg. GPM: </b> 
-                    {(info.stats.red.gpm.reduce((sum, el) => sum + el, 0) / info.stats.red.gpm.length * 2 *
-                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'gpm' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
-                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'gpm' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
-                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'gpm' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
-                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'gpm' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
-                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'gpm' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
-                  </p>
-                  <p>
-                    <b>Avg. madstone's collected: </b> 
-                    {(info.stats.red.madstone_collected.reduce((sum, el) => sum + el, 0) / info.stats.red.madstone_collected.length * 19 *
-                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
-                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
-                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'madstone_collected' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
-                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'madstone_collected' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
-                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'madstone_collected' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
-                  </p>
-                  <p>
-                    <b>Avg. tower kills: </b> 
-                    {(info.stats.red.tower_kills.reduce((sum, el) => sum + el, 0) / info.stats.red.tower_kills.length * 340 *
-                     ((selectedMultiplierExtended[0] && selectedOptionExtended[0] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplierExtended[0] : 1) *
-                     ((selectedMultiplierExtended[2] && selectedOptionExtended[2] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplierExtended[2] : 1) * 
-                     ((selectedMultiplierExtended[4] && selectedOptionExtended[4] == 'tower_kills' && info.general.pos == 0) ? selectedMultiplierExtended[4] : 1) * 
-                     ((selectedMultiplierExtended[5] && selectedOptionExtended[5] == 'tower_kills' && info.general.pos == 1) ? selectedMultiplierExtended[5] : 1) * 
-                     ((selectedMultiplierExtended[8] && selectedOptionExtended[8] == 'tower_kills' && info.general.pos == 1) ? selectedMultiplierExtended[8] : 1)).toFixed(2)}.
-                  </p>
-                </div>
-              ) : ''}
-              {info.general.pos === 1 || info.general.pos === 2 ? (
-                <div className='bg-blue-900 bg-opacity-25 py-2 px-4 rounded-lg'>
-                  <p>
-                    <b>Avg. wards placed: </b> 
-                    {(info.stats.blue.obs_placed.reduce((sum, el) => sum + el, 0) / info.stats.blue.obs_placed.length * 113 *
-                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'obs_placed' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
-                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
-                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
-                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'obs_placed' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
-                  </p>
-                  <p>
-                    <b>Avg. camps stacked: </b>
-                     {(info.stats.blue.camps_stacked.reduce((sum, el) => sum + el, 0) / info.stats.blue.camps_stacked.length * 170 *
-                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'camps_stacked' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
-                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
-                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
-                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'camps_stacked' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
-                  </p>
-                  <p>
-                    <b>Avg. runes grabbed: </b> 
-                    {(info.stats.blue.runes_grabbed.reduce((sum, el) => sum + el, 0) / info.stats.blue.runes_grabbed.length * 121 *
-                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'runes_grabbed' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
-                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
-                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
-                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'runes_grabbed' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
-                  </p>
-                  <p>
-                    <b>Avg. watchers taken: </b> 
-                    {(info.stats.blue.watchers_taken.reduce((sum, el) => sum + el, 0) / info.stats.blue.watchers_taken.length * 90 *
-                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'watchers_taken' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
-                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
-                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
-                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'watchers_taken' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
-                  </p>
-                  <p>
-                    <b>Avg. lotuses grabbed: </b> ?;
-                  </p>
-                  <p>
-                    <b>Avg. smokes used: </b> 
-                    {(info.stats.blue.smokes_used.reduce((sum, el) => sum + el, 0) / info.stats.blue.smokes_used.length * 283 *
-                      ((selectedMultiplierExtended[6] && selectedOptionExtended[6] == 'smokes_used' && info.general.pos == 1) ? selectedMultiplierExtended[6] : 1) *
-                      ((selectedMultiplierExtended[10] && selectedOptionExtended[10] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplierExtended[10] : 1) * 
-                      ((selectedMultiplierExtended[12] && selectedOptionExtended[12] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplierExtended[12] : 1) *
-                      ((selectedMultiplierExtended[14] && selectedOptionExtended[14] == 'smokes_used' && info.general.pos == 2) ? selectedMultiplierExtended[14] : 1)).toFixed(2)};
-                  </p>
-                </div>
-              ) : ''}
-              <div className='bg-green-900 bg-opacity-25 py-2 px-4 rounded-lg'>
-                <p>
-                  <b>Avg. roshan kills: </b>
-                  {(info.stats.green.roshan_kills.reduce((sum, el) => sum + el, 0) / info.stats.green.roshan_kills.length * 850 *
-                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'roshan_kills' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
-                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'roshan_kills' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
-                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'roshan_kills' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
-                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'roshan_kills' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
-                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'roshan_kills' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
-                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'roshan_kills' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
-                </p>
-                <p>
-                  <b>Avg. teamfight participation: </b> 
-                  {(info.stats.green.teamfight_participation.reduce((sum, el) => sum + el, 0) / info.stats.green.teamfight_participation.length * 1895 *
-                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'teamfight_participation' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
-                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'teamfight_participation' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
-                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'teamfight_participation' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
-                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'teamfight_participation' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
-                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'teamfight_participation' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
-                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'teamfight_participation' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
-                </p>
-                <p>
-                  <b>Avg. stuns: </b> 
-                  {(info.stats.green.stuns.reduce((sum, el) => sum + el, 0) / info.stats.green.stuns.length * 15 *
-                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'stuns' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
-                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'stuns' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
-                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'stuns' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
-                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'stuns' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
-                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'stuns' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
-                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'stuns' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
-                </p>
-                <p>
-                  <b>Avg. tormentor kills: </b>
-                   {(info.stats.green.tormentor_kills.reduce((sum, el) => sum + el, 0) / info.stats.green.tormentor_kills.length * 850 *
-                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'tormentor_kills' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
-                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'tormentor_kills' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
-                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'tormentor_kills' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
-                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'tormentor_kills' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
-                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'tormentor_kills' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
-                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'tormentor_kills' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
-                </p>
-                <p>
-                  <b>Avg. courier kills: </b> 
-                  {(info.stats.green.courier_kills.reduce((sum, el) => sum + el, 0) / info.stats.green.courier_kills.length * 850 *
-                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'courier_kills' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
-                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'courier_kills' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
-                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'courier_kills' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
-                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'courier_kills' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
-                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'courier_kills' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
-                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'courier_kills' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
-                </p>
-                <p>
-                  <b>Avg. first blood: </b> 
-                  {(info.stats.green.firstblood.reduce((sum, el) => sum + el, 0) / info.stats.green.firstblood.length * 1700 *
-                      ((selectedMultiplierExtended[1] && selectedOptionExtended[1] == 'firstblood' && info.general.pos == 0) ? selectedMultiplierExtended[1] : 1) *
-                      ((selectedMultiplierExtended[3] && selectedOptionExtended[3] == 'firstblood' && info.general.pos == 0) ? selectedMultiplierExtended[3] : 1) * 
-                      ((selectedMultiplierExtended[7] && selectedOptionExtended[7] == 'firstblood' && info.general.pos == 1) ? selectedMultiplierExtended[7] : 1) *
-                      ((selectedMultiplierExtended[9] && selectedOptionExtended[9] == 'firstblood' && info.general.pos == 1) ? selectedMultiplierExtended[9] : 1) *
-                      ((selectedMultiplierExtended[11] && selectedOptionExtended[11] == 'firstblood' && info.general.pos == 2) ? selectedMultiplierExtended[11] : 1) *
-                      ((selectedMultiplierExtended[13] && selectedOptionExtended[13] == 'firstblood' && info.general.pos == 2) ? selectedMultiplierExtended[13] : 1)).toFixed(2)};
-                </p>
-              </div>
-              <h5><b>Total games:</b> {info.stats.green.roshan_kills.length}</h5>
+              <h5><b>Total matches:</b>  {Object.entries(info)
+                .filter(([leagueId, leagueData]) => 
+                  selectedTournaments.includes(leagueId) && leagueData.stats?.green?.roshan_kills
+                )
+                .reduce((sum, [_, leagueData]) => sum + leagueData.stats.green.roshan_kills.length, 0)}
+              </h5>
+              {(info.general.pos === 0 || info.general.pos === 1) && <RedStats info={info} />}
+              {(info.general.pos === 1 || info.general.pos === 2) && <BlueStats info={info} />}
+              <GreenStats info={info} />
               <div>
-                {Object.entries(info.titles).map(([key, value]) => (
-                  <h5 key={key}>
-                    {(() => {
-                      switch (key) {
-                        case 'str': return 'strength heroes played: ';
-                        case 'agi': return 'agility heroes played: ';
-                        case 'int': return 'intelligence heroes played: ';
-                        case 'all': return 'universal heroes played: ';
-                        case 'green': return 'green heroes played: ';
-                        case 'blue': return 'blue heroes played: ';
-                        case 'red': return 'red heroes played: ';
-                        case 'undead': return 'undead/demon/spirit heroes played: ';
-                        case 'horns': return 'horns/wings heroes played: ';
-                        case 'bearded': return 'bearded/fuzzy heroes played: ';
-                        case 'aquatic': return 'aquatic/fiery/icy heroes played: ';
-                        case 'first_pick': return 'firstpicked: ';
-                        case 'last_pick': return 'lastpicked: ';
-                        case 'games_with_arcana': return 'arcana equipped: ';
-                        case 'games_with_hero_master': return '25+ dota plus hero level: ';
-                      }
-                    })()}
-                    {value}
-                  </h5>
-                ))}
-                <br />
-                {}
+                <h6><b>Titles:</b></h6>
+                {(() => {
+                  const aggregatedTitles = {};
+
+                  const titleLabels = {
+                    str: 'Strength heroes played',
+                    agi: 'Agility heroes played',
+                    int: 'Intelligence heroes played',
+                    all: 'Universal heroes played',
+                    green: 'Green heroes played',
+                    blue: 'Blue heroes played',
+                    red: 'Red heroes played',
+                    undead: 'Undead/demon/spirit heroes played',
+                    horns: 'Horns/wings heroes played',
+                    bearded: 'Bearded/fuzzy heroes played',
+                    aquatic: 'Aquatic/fiery/icy heroes played',
+                    first_pick: 'First picked',
+                    last_pick: 'Last picked',
+                    games_with_arcana: 'Arcana equipped',
+                    games_with_hero_master: '25+ Dota Plus hero level',
+                  };
+
+                  Object.entries(info)
+                    .filter(([leagueId, leagueData]) => selectedTournaments.includes(leagueId))
+                    .forEach(([_, leagueData]) => {
+                      if (!leagueData.titles) return;
+                      Object.entries(leagueData.titles).forEach(([key, value]) => {
+                        aggregatedTitles[key] = (aggregatedTitles[key] || 0) + value;
+                      });
+                    });
+
+                  return Object.entries(aggregatedTitles).map(([key, value]) => (
+                    <div key={key}>
+                      {titleLabels[key] || key}: {value}
+                    </div>
+                  ));
+                })()}
               </div>
-              <p>
-                <b>Data fetched from:</b> <br/> {' '}
-                {info.leagues.map((leagueId, idx) => {
-                  const league = leagues[leagueId]; // вытаскиваешь объект по id
-                  return (
-                    <span key={leagueId}>
-                      <a
-                        href={league.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline text-blue-500"
-                      >
-                        {league.name}
-                      </a><br/>
-                    </span>
-                  );
-                })}
-              </p>
+              <div>
+                <h6><b>Subtitles:</b></h6>
+                {(() => {
+                  const aggregatedSubtitles = {};
+
+                  const subtitleLabels = {
+                    '0_kills': 'Games without kills',
+                    'lowest_networth': 'Lowest networth',
+                    'bbs_before_30min': 'Buyback before 30min',
+                    'most_deaths': 'Has the most deaths',
+                    '4+_active_items': '4 or more active items',
+                    'most_assists': 'Has the most assists',
+                    '9_slots': '9 slots in inventory',
+                    'lost_games': 'Lost games',
+                    'most_voice_lines': 'Most voice lines'
+                  };
+
+                  Object.entries(info)
+                    .filter(([leagueId, leagueData]) => selectedTournaments.includes(leagueId))
+                    .forEach(([_, leagueData]) => {
+                      if (!leagueData.subtitles) return;
+                      Object.entries(leagueData.subtitles).forEach(([key, value]) => {
+                        aggregatedSubtitles[key] = (aggregatedSubtitles[key] || 0) + value;
+                      });
+                    });
+
+                  return Object.entries(aggregatedSubtitles).map(([key, value]) => (
+                    <div key={key}>
+                      {subtitleLabels[key]}: {value}
+                    </div>
+                  ));
+                })()}
+              </div>
             </div>
-          )}
+          ))}
         </section>
       </div>
     </>
