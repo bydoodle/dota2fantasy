@@ -322,7 +322,7 @@ const getAvgForSort = (info, statKey) => {
 
   return (
     <>
-      <div className='p-40 relative w-full bg-gray-950 min-h-screen flex flex-col gap-12'>
+      <div className='p-40 pb-10 relative w-full bg-gray-950 min-h-screen flex flex-col gap-12'>
         <header className='flex justify-between absolute top-0 left-0 h-36 items-center w-full px-40'>
           <a href="https://buymeacoffee.com/nineteenqq" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"  className="h-14" target="_blank" />
@@ -773,6 +773,7 @@ const getAvgForSort = (info, statKey) => {
             </div>
           ))}
         </section>
+        <h6 className='text-white w-full text-center mt-16'>zoom.show сын сами знаете кого</h6>
       </div>
     </>
   )
