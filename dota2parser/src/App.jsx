@@ -530,7 +530,7 @@ const getAvgForSort = (info, statKey) => {
                         {Object.keys(data.Xm[18358].stats[color]).map((stat, idx) => (
                           <option key={`${idx}-${stat}`} value={stat || ''} className={(stat == 'watchers_taken' || stat == 'madstone_collected') ? 'text-red-600' : ''}>
                             {stat.replace('_', ' ')}
-                            {stat == ('watchers_taken' || 'madstone_collected') ? '(data is not 100% accurate)' : ''}
+                            {(stat == 'watchers_taken' || stat == 'madstone_collected') ? '(data is not 100% accurate)' : ''}
                           </option>
                         ))}
                         {color == 'blue' ? (
