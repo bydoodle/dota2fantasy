@@ -1,22 +1,62 @@
 {
-    "18359": {
-        "name": "Clavision DOTA2 Masters 2025: Snow-Ruyi",
-        "link": "https://liquipedia.net/dota2/Clavision/Masters/2025"
-    },
     "18358": {
         "name": "PGL Wallachia 2025 Season 5",
-        "link": "https://liquipedia.net/dota2/PGL/Wallachia/5"
+        "short_name": "PGL Wallachia 2025 S5",
+        "link": "https://liquipedia.net/dota2/PGL/Wallachia/5",
+        "total_deaths_from_torm": 1,
+        "firstblood_before_10min": 0,
+        "firstblood_before_horn": 11,
+        "games<25min": 1,
+        "total_matches_parsed": 92
     },
     "18107": {
         "name": "FISSURE Universe Episode 5",
-        "link": "https://liquipedia.net/dota2/FISSURE/Universe/5"
+        "short_name": "FISSURE Universe S5",
+        "link": "https://liquipedia.net/dota2/FISSURE/Universe/5",
+        "total_deaths_from_torm": 0,
+        "firstblood_before_10min": 0,
+        "firstblood_before_horn": 16,
+        "games<25min": 5,
+        "total_matches_parsed": 43
     },
     "18433": {
         "name": "FISSURE Universe Episode 6",
-        "link": "https://liquipedia.net/dota2/FISSURE/Universe/6"
+        "short_name": "FISSURE Universe S6",
+        "link": "https://liquipedia.net/dota2/FISSURE/Universe/6",
+        "total_deaths_from_torm": 0,
+        "firstblood_before_10min": 0,
+        "firstblood_before_horn": 10,
+        "games<25min": 7,
+        "total_matches_parsed": 41
+    },
+    "18359": {
+        "name": "Clavision DOTA2 Masters 2025: Snow-Ruyi",
+        "short_name": "Clavision Masters 2025",
+        "link": "https://liquipedia.net/dota2/Clavision/Masters/2025",
+        "total_deaths_from_torm": 0,
+        "firstblood_before_10min": 1,
+        "firstblood_before_horn": 6,
+        "games<25min": 5,
+        "total_matches_parsed": 76
     },
     "18375": {
         "name": "Esports World Cup 2025",
-        "link": "https://liquipedia.net/dota2/Esports_World_Cup/2025"
+        "short_name": "EWC 2025",
+        "link": "https://liquipedia.net/dota2/Esports_World_Cup/2025",
+        "total_deaths_from_torm": 1,
+        "firstblood_before_10min": 0,
+        "firstblood_before_horn": 9,
+        "games<25min": 0,
+        "total_matches_parsed": 67
+    },
+    "18324": {
+        "name": "The International 2025",
+        "short_name": "TI 2025",
+        "link": "https://liquipedia.net/dota2/The_International/2025",
+        "total_deaths_from_torm": 0,
+        "firstblood_before_10min": 0,
+        "firstblood_before_horn": 9,
+        "games<25min": 1,
+        "total_matches_parsed": 84
     }
 }
