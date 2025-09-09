@@ -405,7 +405,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 8
             }
         },
         "general": {
@@ -589,7 +589,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18359": {
@@ -889,7 +889,7 @@
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "18375": {
@@ -1057,7 +1057,7 @@
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18324": {
@@ -1261,7 +1261,7 @@
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         }
     },
@@ -1828,7 +1828,7 @@
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "general": {
@@ -2486,7 +2486,7 @@
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18375": {
@@ -2711,7 +2711,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18324": {
@@ -2987,7 +2987,7 @@
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         }
     },
@@ -3397,7 +3397,7 @@
                 "most_assists": 5,
                 "9_slots": 3,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -3881,7 +3881,7 @@
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18375": {
@@ -4049,7 +4049,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -4632,7 +4632,7 @@
                 "most_assists": 6,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 9
             }
         },
         "general": {
@@ -4804,7 +4804,7 @@
                 "most_assists": 2,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18359": {
@@ -5076,13 +5076,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 5,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 4,
                 "4+_active_items": 14,
                 "most_assists": 6,
                 "9_slots": 1,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 8
             }
         },
         "18375": {
@@ -5233,13 +5233,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 2,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 2,
                 "4+_active_items": 9,
                 "most_assists": 5,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "18324": {
@@ -5429,7 +5429,7 @@
                 "most_assists": 5,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         }
     },
@@ -5802,13 +5802,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 3,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 5,
                 "4+_active_items": 22,
                 "most_assists": 11,
                 "9_slots": 1,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "general": {
@@ -5980,7 +5980,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 6
             }
         },
         "18359": {
@@ -6258,7 +6258,7 @@
                 "most_assists": 6,
                 "9_slots": 0,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18375": {
@@ -6599,13 +6599,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 2,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 10,
                 "most_assists": 5,
                 "9_slots": 0,
                 "lost_games": 3,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         }
     },
@@ -7951,7 +7951,7 @@
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 10,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -8395,7 +8395,7 @@
             "subtitles": {
                 "0_kills": 3,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 2,
                 "4+_active_items": 15,
                 "most_assists": 0,
@@ -8643,7 +8643,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -8885,7 +8885,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 2,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         }
     },
@@ -9485,13 +9485,13 @@
             "subtitles": {
                 "0_kills": 3,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 19,
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18375": {
@@ -10103,13 +10103,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 3,
                 "4+_active_items": 14,
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 10,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -10275,7 +10275,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 4,
                 "4+_active_items": 9,
                 "most_assists": 3,
@@ -10715,7 +10715,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 6
             }
         },
         "general": {
@@ -11061,13 +11061,13 @@
             "subtitles": {
                 "0_kills": 2,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 22,
                 "most_assists": 3,
                 "9_slots": 0,
                 "lost_games": 11,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "18375": {
@@ -11343,7 +11343,7 @@
                 "most_assists": 2,
                 "9_slots": 1,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 5
             }
         },
         "18324": {
@@ -13128,7 +13128,7 @@
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "general": {
@@ -13606,13 +13606,13 @@
             "subtitles": {
                 "0_kills": 2,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 17,
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 11,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "18375": {
@@ -13990,7 +13990,7 @@
                 "most_assists": 1,
                 "9_slots": 1,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -14351,7 +14351,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 7
             }
         }
     },
@@ -14598,7 +14598,7 @@
                 "most_assists": 4,
                 "9_slots": 1,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -14918,7 +14918,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 2,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 9,
                 "4+_active_items": 20,
                 "most_assists": 6,
@@ -16765,7 +16765,7 @@
                 "most_assists": 1,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "general": {
@@ -17005,13 +17005,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 7,
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18433": {
@@ -17642,13 +17642,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 16,
                 "most_assists": 3,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 8
             }
         },
         "18324": {
@@ -17924,7 +17924,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 5
             }
         }
     },
@@ -18776,7 +18776,7 @@
             "subtitles": {
                 "0_kills": 1,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 18,
                 "most_assists": 3,
@@ -18980,7 +18980,7 @@
             "subtitles": {
                 "0_kills": 1,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 12,
                 "most_assists": 2,
@@ -19490,7 +19490,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 6,
                 "most_assists": 1,
@@ -19779,13 +19779,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 1,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 2,
                 "4+_active_items": 14,
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -19969,7 +19969,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 10,
                 "most_assists": 2,
@@ -20161,13 +20161,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 3,
                 "4+_active_items": 10,
                 "most_assists": 1,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -20333,7 +20333,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 5,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 2,
                 "4+_active_items": 8,
                 "most_assists": 3,
@@ -20774,7 +20774,7 @@
                 "most_assists": 8,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18324": {
@@ -20958,7 +20958,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 3,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 3,
                 "4+_active_items": 7,
                 "most_assists": 4,
@@ -21396,13 +21396,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 7,
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 5,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18375": {
@@ -22087,7 +22087,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 10,
                 "most_assists": 2,
@@ -22384,7 +22384,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 8,
                 "most_assists": 0,
@@ -23137,13 +23137,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 13,
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -23357,7 +23357,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 12,
                 "most_assists": 2,
@@ -23555,7 +23555,7 @@
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18324": {
@@ -23759,7 +23759,7 @@
                 "most_assists": 3,
                 "9_slots": 0,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 5
             }
         }
     },
@@ -23956,7 +23956,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 3,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 6,
                 "4+_active_items": 5,
                 "most_assists": 4,
@@ -24161,13 +24161,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 2,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 4,
                 "4+_active_items": 12,
                 "most_assists": 4,
                 "9_slots": 0,
                 "lost_games": 5,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18375": {
@@ -24340,13 +24340,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 2,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 3,
                 "most_deaths": 2,
                 "4+_active_items": 10,
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -24536,7 +24536,7 @@
                 "most_assists": 4,
                 "9_slots": 0,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         }
     },
@@ -24733,13 +24733,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 2,
                 "4+_active_items": 12,
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 7
             }
         },
         "general": {
@@ -24938,13 +24938,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 3,
                 "4+_active_items": 11,
                 "most_assists": 2,
                 "9_slots": 1,
                 "lost_games": 5,
-                "most_voice_lines": 0
+                "most_voice_lines": 7
             }
         },
         "18375": {
@@ -25117,13 +25117,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 5,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 4,
                 "4+_active_items": 10,
                 "most_assists": 3,
                 "9_slots": 1,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -25313,7 +25313,7 @@
                 "most_assists": 3,
                 "9_slots": 1,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         }
     },
@@ -25488,13 +25488,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 3,
                 "4+_active_items": 9,
                 "most_assists": 4,
                 "9_slots": 1,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "general": {
@@ -25927,7 +25927,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 8,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 9,
                 "4+_active_items": 12,
                 "most_assists": 3,
@@ -26109,7 +26109,7 @@
             "subtitles": {
                 "0_kills": 1,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 1,
                 "4+_active_items": 6,
                 "most_assists": 0,
@@ -27005,7 +27005,7 @@
             "subtitles": {
                 "0_kills": 1,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 0,
                 "4+_active_items": 7,
                 "most_assists": 1,
@@ -27200,7 +27200,7 @@
             "subtitles": {
                 "0_kills": 1,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 4,
                 "most_assists": 0,
@@ -28464,7 +28464,7 @@
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -29254,7 +29254,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 5,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 2,
                 "4+_active_items": 12,
                 "most_assists": 6,
@@ -29499,7 +29499,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 3,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 3,
                 "4+_active_items": 12,
                 "most_assists": 5,
@@ -29675,7 +29675,7 @@
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "general": {
@@ -29808,13 +29808,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 4,
                 "4+_active_items": 6,
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18359": {
@@ -30031,13 +30031,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 1,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 5,
                 "4+_active_items": 14,
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 10
             }
         },
         "18324": {
@@ -30282,7 +30282,7 @@
                 "most_assists": 1,
                 "9_slots": 0,
                 "lost_games": 9,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         }
     },
@@ -30524,7 +30524,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "general": {
@@ -30744,7 +30744,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 5,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18359": {
@@ -30984,7 +30984,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 9
             }
         },
         "18375": {
@@ -31260,7 +31260,7 @@
                 "most_assists": 0,
                 "9_slots": 2,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 9
             }
         },
         "18324": {
@@ -31476,7 +31476,7 @@
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 7
             }
         }
     },
@@ -31718,7 +31718,7 @@
                 "most_assists": 3,
                 "9_slots": 0,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 6
             }
         },
         "general": {
@@ -31932,13 +31932,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 9,
                 "most_assists": 5,
                 "9_slots": 0,
                 "lost_games": 5,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18359": {
@@ -32178,7 +32178,7 @@
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18375": {
@@ -32454,7 +32454,7 @@
                 "most_assists": 4,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -32664,13 +32664,13 @@
             "subtitles": {
                 "0_kills": 1,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 12,
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         }
     },
@@ -32993,7 +32993,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 3,
                 "4+_active_items": 12,
                 "most_assists": 0,
@@ -33623,7 +33623,7 @@
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         },
         "18375": {
@@ -33995,13 +33995,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 12,
                 "most_assists": 0,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -34294,7 +34294,7 @@
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         }
     },
@@ -34513,13 +34513,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 6,
                 "4+_active_items": 10,
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 5
             }
         },
         "general": {
@@ -34718,13 +34718,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 3,
                 "4+_active_items": 9,
                 "most_assists": 2,
                 "9_slots": 0,
                 "lost_games": 5,
-                "most_voice_lines": 0
+                "most_voice_lines": 7
             }
         },
         "18359": {
@@ -34941,13 +34941,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 2,
                 "most_deaths": 9,
                 "4+_active_items": 6,
                 "most_assists": 4,
                 "9_slots": 0,
                 "lost_games": 8,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "18375": {
@@ -35197,13 +35197,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 6,
                 "4+_active_items": 12,
                 "most_assists": 1,
                 "9_slots": 1,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18324": {
@@ -35404,7 +35404,7 @@
                 "most_assists": 4,
                 "9_slots": 1,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         }
     },
@@ -35623,7 +35623,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 3,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 14,
                 "most_assists": 3,
@@ -35828,7 +35828,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 1,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 13,
                 "most_assists": 5,
@@ -36051,7 +36051,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 2,
                 "4+_active_items": 13,
                 "most_assists": 3,
@@ -37026,7 +37026,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 4,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 3,
                 "4+_active_items": 16,
                 "most_assists": 6,
@@ -37260,7 +37260,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 1,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 2,
                 "4+_active_items": 16,
                 "most_assists": 4,
@@ -37550,7 +37550,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 0,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 0,
                 "4+_active_items": 18,
                 "most_assists": 0,
@@ -38473,7 +38473,7 @@
                 "most_assists": 3,
                 "9_slots": 3,
                 "lost_games": 4,
-                "most_voice_lines": 0
+                "most_voice_lines": 5
             }
         },
         "general": {
@@ -38838,7 +38838,7 @@
                 "most_assists": 0,
                 "9_slots": 2,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 4
             }
         },
         "18324": {
@@ -39182,7 +39182,7 @@
                 "most_assists": 1,
                 "9_slots": 2,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 7
             }
         }
     },
@@ -39740,7 +39740,7 @@
                 "most_assists": 1,
                 "9_slots": 2,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         },
         "18324": {
@@ -39992,7 +39992,7 @@
                 "most_assists": 0,
                 "9_slots": 1,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 1
             }
         }
     },
@@ -40504,13 +40504,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 2,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 5,
                 "4+_active_items": 12,
                 "most_assists": 4,
                 "9_slots": 0,
                 "lost_games": 7,
-                "most_voice_lines": 0
+                "most_voice_lines": 3
             }
         },
         "18324": {
@@ -40744,7 +40744,7 @@
                 "most_assists": 7,
                 "9_slots": 3,
                 "lost_games": 6,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         }
     },
@@ -41040,7 +41040,7 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 10,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 4,
                 "4+_active_items": 17,
                 "most_assists": 11,
@@ -41212,13 +41212,13 @@
             "subtitles": {
                 "0_kills": 0,
                 "lowest_networth": 5,
-                "bbs_before_30min": 0,
+                "bbs_before_30min": 1,
                 "most_deaths": 1,
                 "4+_active_items": 9,
                 "most_assists": 2,
                 "9_slots": 1,
                 "lost_games": 2,
-                "most_voice_lines": 0
+                "most_voice_lines": 2
             }
         }
     }

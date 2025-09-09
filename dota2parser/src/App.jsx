@@ -509,6 +509,9 @@ const getAvgForSort = (info, statKey) => {
                         <option disabled className='text-red-600'>
                           Raven - +6% if any player gets a rampage(NO DATA)
                         </option>
+                        <option disabled className='text-red-600'>
+                          Even-Keeled - +25% in games where player was tipped 5+ times(NO DATA)
+                        </option>
                       </Select>
                   </div>
                   <div className='flex flex-col gap-2'>
@@ -637,12 +640,14 @@ const getAvgForSort = (info, statKey) => {
           <p>* All data was taken using <a href="https://docs.opendota.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">opendota.api</a> and <a href="https://stratz.com/" className='underline text-blue-500' target='_blank' rel="noopener noreferrer">stratz.com</a> </p>
           <p>* No data for stat 'lotuses grabbed' since it was unable to find this info</p>
           <p>* No data for title 'clutch(+11% when playing last possible match in the series)'</p>
+          <p>* Data for 'madstone collected' and 'watchers taken' is not 100% accurate</p>
           <p>* No data for next subtitles:
             <br />
-            Thief(+9% in games where any player steals divine rapier),
+            - Thief(+9% in games where any player steals divine rapier),
             <br />
-            Raven(+6% if any player gets a rampage),
+            - Raven(+6% if any player gets a rampage),
             <br />
+            - Even-Keeled(+25% in games where player was tipped 5+ times)
             </p>
         </div>
         <section className='relative flex flex-col items-center w-full gap-4 text-white py-8 mb-12'>

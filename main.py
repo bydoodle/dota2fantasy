@@ -381,11 +381,6 @@ for league_id in leagues_ids:
                         dotaPlus {
                             level
                         }
-                        playbackData {
-                            buyBackEvents {
-                                time
-                            }
-                        }
                     }
                 }
                 }""".replace("MATCH_ID", str(match['match_id']))},
@@ -393,14 +388,7 @@ for league_id in leagues_ids:
         )
 
         playersStratz = {
-            p["heroId"]: [
-                p["dotaPlus"]["level"] if p.get('dotaPlus') else 0,
-                (
-                    p["playbackData"]["buybackEvents"][0]["time"]
-                    if p.get("playbackData") and p["playbackData"].get("buybackEvents")
-                    else None
-                )
-            ]
+            p["heroId"]: p["dotaPlus"]["level"] if p.get('dotaPlus') else 0
             for p in stratzAPI.json()['data']['match']['players']
         }
 
@@ -437,13 +425,9 @@ for league_id in leagues_ids:
         chat_events = match_r['chat']
         chat_counts = Counter(e['player_slot'] for e in chat_events if e['type'] == 'chatwheel')
 
-        print(chat_counts)
-
         if chat_counts:
             max_chat_count = max(chat_counts.values())
             top_chatwheel_players = [slot for slot, count in chat_counts.items() if count == max_chat_count]
-
-            print(top_chatwheel_players)
         else:
             top_chatwheel_players = []
 
@@ -459,9 +443,6 @@ for league_id in leagues_ids:
             if player['name'] in PLAYERS_LIST:
                 if player in lowest_networth:
                     player_stat[player['name']][league_id]['subtitles']['lowest_networth'] += 1
-
-                if playersStratz[player['hero_id']][1] is not None and playersStratz[player['hero_id']][1] < 1800:
-                    player_stat[player['name']][league_id]['subtitles']['bbs_before_30min'] += 1
 
                 if player in most_deaths:
                     player_stat[player['name']][league_id]['subtitles']['most_deaths'] += 1
@@ -499,11 +480,13 @@ for league_id in leagues_ids:
                     total_matches_count += 1
                     is_match_counted = True
 
+                if player['buyback_log'] and player['buyback_log'][0]['time'] < 1800:
+                    player_stat[player['name']][league_id]['subtitles']['bbs_before_30min'] += 1
+
                 if player['name'] not in player_stat:
                     addPlayerFields(league_id, player, match_r)
                 elif league_id not in player_stat[player['name']]:
                     addPlayerFields(league_id, player, match_r)
-
                 else:
                     if PLAYERS_LIST[player['name']]['pos'] in (0, 1) and 'red' in player_stat[player['name']][league_id]['stats']:
                         player_stat[player['name']][league_id]['stats']['red']['kills'].append(player['kills'])
@@ -545,7 +528,7 @@ for league_id in leagues_ids:
                             player_stat[player['name']][league_id]['titles']['last_pick'] += 1
                         break
                 
-                if playersStratz[player['hero_id']][0] >= 25:
+                if playersStratz[player['hero_id']] >= 25:
                     player_stat[player['name']][league_id]['titles']['games_with_hero_master'] += 1
 
                 attr = heroes_data[str(player['hero_id'])]['attr']
