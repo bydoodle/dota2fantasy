@@ -778,7 +778,6 @@ const getAvgForSort = (info, statKey) => {
             </div>
           ))}
         </section>
-        <h6 className='text-white w-full text-center mt-16'>zoom.show сын сами знаете кого</h6>
       </div>
     </>
   )
